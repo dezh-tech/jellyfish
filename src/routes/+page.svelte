@@ -1,60 +1,38 @@
 <script lang="ts">
 	import logo from '$lib/assets/logo.webp';
-	import hamburger from '$lib/assets/icons/hamburger.svg';
-	import close from '$lib/assets/icons/close.png';
-
-	let isMenuOpen = false;
-
-	const toggleMenu = () => {
-		isMenuOpen = !isMenuOpen;
-	};
+	import Header from '$lib/Header.svelte';
 </script>
 
 <main class="relative">
-	<header class="padding-x py-8 absolute z-10 w-full">
-		<nav class="flex justify-between items-center max-container">
-			<a href="/">
-				<img src={logo} alt="jellyfish logo" width={45} height={20} />
-			</a>
-			<b class="font-extrabold text-jelly-blue">JellyFish</b>
+	<Header />
 
-			<ul class="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
-				<li class="font-montserrat leading-normal text-lg text-slate-gray">
-					<a href="#pricing">Pricing</a>
-				</li>
-				<li class="font-montserrat leading-normal text-lg text-slate-gray">
-					<a href="#features">Features</a>
-				</li>
-				<li class="font-montserrat leading-normal text-lg text-slate-gray">
-					<a href="#contact">Contact Us</a>
-				</li>
-			</ul>
+	<!-- Hero Section -->
+	<section
+		id="home"
+		class="xl:padding-1 wide:padding-r padding-b w-full padding-2
+	flex xl:flex-row flex-col gap-10 max-container
+	justify-center min-h-screen pt-14 max-sm:pt-2"
+	>
+		<div
+			class="relative xl:w-4/5 flex flex-col text-center items-start w-full
+		max-xl:padding-x pt-28 max-sm:pt-1"
+		>
+			<h1 class="mt-10 font-palanquin text-8xl max-sm:text-[60px] max-sm:leading-[60px] font-bold">
+				<span class="text-blue-400">Nostr</span> Experience
+				<span class="text-slate-600 line-through">is slow</span>
+				Just Got
+				<span class="text-blue-400 flex items-center inline-flex">
+					Smooth!
+					<img src={logo} alt="jellyfish logo" class="ml-2 w-28 h-auto max-sm:w-12" />
+				</span>
+			</h1>
+			<p>Join our paid relays on Nostr right now to get a very smooth experience!</p>
 
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="hidden max-lg:block" on:click={toggleMenu}>
-				<img src={isMenuOpen ? close : hamburger} alt="Menu" width={25} height={25} />
-			</div>
-		</nav>
+			<input class="npub-input" type="text" placeholder="Your npub or nip-05 address" required />
+			<button class="join-button" type="submit"> Join Relay! </button>
+		</div>
+	</section>
 
-		{#if isMenuOpen}
-			<div class="absolute top-16 left-0 right-0 bg-white shadow-lg z-20 p-4 max-lg:block">
-				<ul class="flex flex-col items-center">
-					<li class="font-montserrat leading-normal text-lg text-slate-gray">
-						<a href="#pricing" on:click={toggleMenu}>Pricing</a>
-					</li>
-					<li class="font-montserrat leading-normal text-lg text-slate-gray">
-						<a href="#features" on:click={toggleMenu}>Features</a>
-					</li>
-					<li class="font-montserrat leading-normal text-lg text-slate-gray">
-						<a href="#contact" on:click={toggleMenu}>Contact Us</a>
-					</li>
-				</ul>
-			</div>
-		{/if}
-	</header>
-
-	<!-- <section class="xl:padding-1 wide:padding-r padding-b">Hero</section> -->
 	<!-- <section class="padding">Features</section> -->
 	<!-- <section class="bg-black padding-x padding-t pb-8">Footer</section> -->
 </main>
