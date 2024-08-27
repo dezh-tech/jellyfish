@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :not(input):not(textarea) {
 	-moz-user-select: none;
 	user-select: none;
