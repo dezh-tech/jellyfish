@@ -26,10 +26,21 @@
 					<img src={logo} alt="jellyfish logo" class="ml-2 w-28 h-auto max-sm:w-12" />
 				</span>
 			</h1>
-			<p>Join our paid relays on Nostr right now to get a very smooth experience!</p>
+			<p class="felx justify-center mt-3 m/b-3 text-jelly-blue">
+				Join our paid relays on the Nostr right now to get a very smooth experience!
+			</p>
 
-			<input class="npub-input" type="text" placeholder="Your npub or nip-05 address" required />
-			<button class="join-button" type="submit"> Join Relay! </button>
+			<div class="w-full mb-4">
+				<input
+					class="npub-input w-3/5"
+					type="text"
+					placeholder="Your npub or nip-05 address"
+					required
+				/>
+			</div>
+			<div class="w-full">
+				<button class="join-button w-0.5/5" type="submit">Join Relay!</button>
+			</div>
 		</div>
 	</section>
 
