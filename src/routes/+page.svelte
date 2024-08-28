@@ -2,96 +2,198 @@
 	import logo from '$lib/assets/logo.webp';
 
 	import Header from '$lib/components/Header.svelte';
-	import Feature from '$lib/components/Feature.svelte';
-
-	import { features } from '$lib/data/features';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <main class="relative">
-	<Header />
-
 	<!--? Hero Section ?-->
-	<section
-		id="home"
-		class="xl:padding-1 wide:padding-r w-full padding-2
-    flex xl:flex-row flex-col gap-10 max-container
-    justify-center mb-80 pt-28 max-sm:pt-18"
-	>
-		<div
-			class="relative xl:w-4/5 flex flex-col items-center w-full
-        max-xl:padding-x pt-28 max-sm:pt-1"
-		>
-			<h1
-				class="mt-10 font-palanquin text-8xl max-sm:text-[60px] max-sm:leading-[60px] font-bold text-center"
+	<div id="home" class="bg-white">
+		<Header />
+		<div class="relative isolate px-6 pt-14 lg:px-8">
+			<div
+				class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+				aria-hidden="true"
 			>
-				<span class="text-jelly-blue">Nostr</span> Experience
-				<span class="text-slate-600 line-through">is slow</span>
-				Just Got
-				<span class="text-jelly-blue flex items-center inline-flex">
-					Smooth!
-					<img src={logo} alt="jellyfish logo" class="ml-2 w-28 h-auto max-sm:w-12" />
-				</span>
-			</h1>
-			<p
-				class="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm text-center"
-			>
-				Join our paid relays on the Nostr right now to get a very smooth experience!
-			</p>
-
-			<div class="flex flex-col items-center w-full mb-4">
-				<input
-					class="npub-input w-3/5 mb-4"
-					type="text"
-					placeholder="Your npub or nip-05 address"
-					required
-				/>
+				<div
+					class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-jelly-blue to-blue-800 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+					style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+				></div>
 			</div>
-			<div class="w-full flex justify-center">
-				<button class="join-button w-0.5/5" type="submit">Join Relay!</button>
+			<div class="mx-auto py-32 sm:py-48 lg:py-56">
+				<div class="hidden sm:mb-8 sm:flex sm:justify-center">
+					<!-- <div
+						class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+					>
+						Announcing our next round of funding. <a href="#" class="font-semibold text-indigo-600"
+							><span class="absolute inset-0" aria-hidden="true"></span>Read more
+							<span aria-hidden="true">&rarr;</span></a
+						>
+					</div> -->
+				</div>
+				<div class="text-center">
+					<h1
+						class="mt-10 font-palanquin text-8xl max-sm:text-[60px] max-sm:leading-[60px] font-bold text-center"
+					>
+						<span class="text-jelly-blue">Nostr</span> Experience
+						<span class="text-slate-600 line-through">is slow</span>
+						Just Got
+						<span class="text-jelly-blue flex items-center inline-flex">
+							Smooth!
+							<img src={logo} alt="jellyfish logo" class="ml-2 w-28 h-auto max-sm:w-12" />
+						</span>
+					</h1>
+					<p class="mt-6 text-lg leading-8 text-gray-600">
+						Join our paid Nostr relay for 7,230 sats/month right now !
+					</p>
+					<div class="mt-10 flex items-center justify-center gap-x-6">
+						<input
+							type="text"
+							placeholder={`Enter your npub or nip-05 address`}
+							class="w-[600px] pl-3 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-jelly-blue shadow-sm rounded-lg"
+						/>
+						<button
+							class="px-5 py-2 text-white bg-jelly-blue rounded-md duration-150 hover:bg-blue-500 active:shadow-lg"
+						>
+							Join Relay!
+						</button>
+					</div>
+				</div>
+			</div>
+			<div
+				class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+				aria-hidden="true"
+			>
+				<div
+					class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-jelly-blue to-blue-800 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+					style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+				></div>
 			</div>
 		</div>
-	</section>
+	</div>
 
 	<!--? Features ?-->
-	<section id="features" class="max-container max-sm:mt-12 mb-60">
-		<div class="flex flex-col justify-start gap-5">
-			<h2 class="text-4xl font-palanquin font-bold text-center">
-				<span class="text-jelly-blue">JellyFish</span> Relay Features
-			</h2>
-			<p class="mt-2 font-montserrat text-slate-gray text-center mb-20">
-				Our relays have these features!
-			</p>
-
-			<div
-				class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 max-sm:gap-28 text-center"
-			>
-				{#each features as f}
-					<Feature desc={f.description} image={f.image} title={f.title} />
-				{/each}
+	<div id="features" class="bg-white py-24 sm:py-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl lg:text-center">
+				<h2 class="text-base font-semibold leading-7 text-jelly-blue">Our good features</h2>
+				<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Features</p>
+				<p class="mt-6 text-lg leading-8 text-gray-600">Check our chapsagi features</p>
+			</div>
+			<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+				<dl
+					class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
+				>
+					<div class="relative pl-16">
+						<dt class="text-base font-semibold leading-7 text-gray-900">
+							<div
+								class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-jelly-blue"
+							>
+								<svg
+									class="h-6 w-6 text-white"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+									/>
+								</svg>
+							</div>
+							Push to deploy
+						</dt>
+						<dd class="mt-2 text-base leading-7 text-gray-600">
+							Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio
+							urna massa nunc massa.
+						</dd>
+					</div>
+					<div class="relative pl-16">
+						<dt class="text-base font-semibold leading-7 text-gray-900">
+							<div
+								class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-jelly-blue"
+							>
+								<svg
+									class="h-6 w-6 text-white"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+									/>
+								</svg>
+							</div>
+							SSL certificates
+						</dt>
+						<dd class="mt-2 text-base leading-7 text-gray-600">
+							Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales
+							gravida quam turpis enim lacus amet.
+						</dd>
+					</div>
+					<div class="relative pl-16">
+						<dt class="text-base font-semibold leading-7 text-gray-900">
+							<div
+								class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-jelly-blue"
+							>
+								<svg
+									class="h-6 w-6 text-white"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+									/>
+								</svg>
+							</div>
+							Simple queues
+						</dt>
+						<dd class="mt-2 text-base leading-7 text-gray-600">
+							Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor
+							congue commodo diam neque.
+						</dd>
+					</div>
+					<div class="relative pl-16">
+						<dt class="text-base font-semibold leading-7 text-gray-900">
+							<div
+								class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-jelly-blue"
+							>
+								<svg
+									class="h-6 w-6 text-white"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
+									/>
+								</svg>
+							</div>
+							Advanced security
+						</dt>
+						<dd class="mt-2 text-base leading-7 text-gray-600">
+							Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id
+							hac maecenas ac donec pharetra eget.
+						</dd>
+					</div>
+				</dl>
 			</div>
 		</div>
-	</section>
-
-	<!--? Pricing ?-->
-	<!-- TODO -->
-	<!-- <section id="pricing" class="max-container">
-		<div class="flex flex-col justify-start gap-5">
-			<h2 class="text-4xl font-palanquin font-bold text-center">
-				 Pricing
-			</h2>
-			<p class="mt-2 font-montserrat text-slate-gray text-center mb-20">
-				Best Prices ever!
-			</p>
-
-			<div
-				class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 max-sm:gap-28 text-center"
-			>
-				{#each features as f}
-					<PriceTable />
-				{/each}
-			</div>
-		</div>
-	</section> -->
-
-	<section class="bg-black padding-x padding-t pb-8">Footer</section>
+	</div>
+	<Footer />
 </main>
