@@ -15,7 +15,7 @@
 		<a href="/">
 			<img src={logo} alt="jellyfish logo" width={45} height={20} />
 		</a>
-		<b class="font-extrabold text-jelly-blue">JellyFish</b>
+		<a href="/" class="font-extrabold text-jelly-blue">JellyFish</a>
 
 		<ul class="flex-1 flex justify-end items-center gap-16 max-lg:hidden">
 			<li class="font-montserrat leading-normal text-lg text-slate-gray">
