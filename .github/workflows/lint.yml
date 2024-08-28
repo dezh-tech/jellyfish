@@ -1,0 +1,30 @@
+name: Liniting using Eslint
+
+on:
+    pull_request_target:
+      types:
+        - opened
+        - edited
+        - synchronize
+
+env:
+  NODE_VERSION: 20.12.0
+
+jobs:
+  linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Code Linting
+        run: npm run lint
