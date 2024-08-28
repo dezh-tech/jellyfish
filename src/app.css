@@ -57,16 +57,18 @@
 	}
 
 	.join-button {
-		@apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
-		focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center
-		dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+		@apply border border-blue-700 text-blue-700 bg-white hover:bg-white hover:text-jelly-blue 
+		focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-[10px] text-sm 
+		px-5 py-2.5 text-center
+		dark:border-jelly-blue dark:text-white dark:bg-jelly-blue dark:hover:bg-jelly-blue 
+		dark:hover:text-white;
 	}
 
 	.npub-input {
-		@apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full 
-		focus:ring-blue-500 focus:border-blue-500 p-2.5 
-		dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
-		dark:focus:ring-blue-500 dark:focus:border-blue-500;
+		@apply bg-white border border-[2px] border-blue-700 text-blue-700 text-sm rounded-[10px] 
+		focus:ring-blue-500 focus:border-jelly-blue p-2.5 
+		dark:bg-white dark:border-jelly-blue dark:placeholder-gray-400 dark:text-jelly-blue 
+		dark:focus:ring-blue-500 dark:focus:border-jelly-blue;
 	}
 }
 
