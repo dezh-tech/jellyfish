@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: 'jellyfish.land'
+          BASE_PATH: ''
         run: |
           npm run build
 
