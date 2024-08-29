@@ -34,16 +34,13 @@
 					<h1
 						class="mt-10 font-palanquin text-8xl max-sm:text-[60px] max-sm:leading-[60px] font-bold text-center"
 					>
-						<span class="text-jelly-blue">Nostr</span> Experience
-						<span class="text-slate-600 line-through">is slow</span>
-						Just Got
-						<span class="text-jelly-blue flex items-center inline-flex">
-							Smooth!
-							<img src={logo} alt="jellyfish logo" class="ml-2 w-28 h-auto max-sm:w-12" />
-						</span>
+						Stay
+						<span class="text-jelly-blue">Immortal!</span>
 					</h1>
 					<p class="mt-6 text-lg leading-8 text-gray-600">
-						Join our paid Nostr relay for 7,230 sats/month right now !
+						Join our relay with all services for 9,000 sats/month right now!
+						<br />
+						Explore the Nostr with a smooth experience.
 					</p>
 					<div class="mt-10 flex items-center justify-center gap-x-6">
 						<input
@@ -54,7 +51,7 @@
 						<button
 							class="px-5 py-2 text-white bg-jelly-blue rounded-md duration-150 hover:bg-blue-500 active:shadow-lg max-sm:text-sm max-sm:h-[40px]"
 						>
-							Join Relay!
+							<b>Join</b>
 						</button>
 					</div>
 				</div>
@@ -75,9 +72,14 @@
 	<div id="features" class="bg-white py-24 sm:py-32">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl lg:text-center">
-				<h2 class="text-base font-semibold leading-7 text-jelly-blue">Our good features</h2>
-				<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Features</p>
-				<p class="mt-6 text-lg leading-8 text-gray-600">Check our chapsagi features</p>
+				<h2 class="text-base font-semibold leading-7 text-jelly-blue">Features</h2>
+				<p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+					Check out what you'll get
+				</p>
+				<p class="mt-6 text-lg leading-8 text-gray-600">
+					All features and services in one subscription, simple plan, simple usage! <br /> Don't waste
+					time on selecting and managing complex services and plans.
+				</p>
 			</div>
 			<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 				<dl
@@ -103,11 +105,11 @@
 									/>
 								</svg>
 							</div>
-							Push to deploy
+							Backup
 						</dt>
 						<dd class="mt-2 text-base leading-7 text-gray-600">
-							Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio
-							urna massa nunc massa.
+							We backup all of your events for you and you can export your events at anytime you
+							want.
 						</dd>
 					</div>
 					<div class="relative pl-16">
@@ -130,11 +132,43 @@
 									/>
 								</svg>
 							</div>
-							SSL certificates
+							Privacy
 						</dt>
 						<dd class="mt-2 text-base leading-7 text-gray-600">
-							Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales
-							gravida quam turpis enim lacus amet.
+							We won't leak your private messages or send them to unauthorized address.
+						</dd>
+					</div>
+					<div class="relative pl-16">
+						<dt class="text-base font-semibold leading-7 text-gray-900">
+							<div
+								class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-jelly-blue"
+							>
+								<svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 50 50"
+									width="30"
+									height="30"
+								>
+									<title>icons8-search-50</title>
+									<defs>
+										<image
+											width="43"
+											height="44"
+											id="img1"
+											href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAsCAMAAADLhrFKAAAAAXNSR0IB2cksfwAAASlQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////seNqHgAAAGN0Uk5TABhioc3s+uvMYRc+s/v/sj0jtvzBcjcWBThzwrQiW/P1hxWI9vJZfqgbHKp9gP4Bb/1UVVh3eCEdPLFjwMNfdJ86yur5Bgf43DuZxFIQiTn3M6ywehpWT1p1paDL4cmWXFN/EtHniQAAAjlJREFUeJyN1N9P01AUB/BzunXOdUI2cNUlWzTVzR/gyEAm4vyNCTHiCzG++o8ZX0w0xPigMSoIREQBQUPYkGwW49DAIAwIRIU11MvGbn+s7fp96M9Pbs+9PS2CEiyF7Iou/APVQXrE7blKZAbXTa0PJWDL4xKH/4pQhwvGNoxrfsR5epn34jKPGSMbXYQgftPcOEOGDaeqbfPPYzIzrS+vBUUt3rPhdQG/VM0EoHVXjExqra9uLfrZgAK0z/H+cY31S8E5QwoxaWF3S205R6BxzNjC6b+Fs59U1ss0/DChAMJK00fFotdVP29qeWnTl6e2c+bcB1MKkJxueU+tgzuwYmGvfI0PU+v0uJct7LWptkFq2YON5uUCeJzn31F7cyLRb2FvjXW8sW/5rP0aLr6m1unhFi1s92hshNqaa3bpFbWM99BvC3t75PJLaj0OlzNvSnlp5+oLaqFePiya2p7hUBoUe3fo+pJFT954rrKkKUPOqo+tlJgw0PUM1DZRyJ+aMLS9b7d7+jQWIksCM2VA72XF7qegtdCUE9htfRmxk6IorOb0lmAIybMaeiE4QLZs1xO9hbaNfEDeUtaZTzCDfKFIcENGbyGRZoB1n2DGO2E0ceTXbBGCzY5+LVZ+ox04o5y0B4ZIR90v4eOTVZY8OBrCvuT3JGK6UO7TyKoaq61BWjMEsHce2bH7mMvZsWpc00I8W8G17T4mL8WGhXjKXcJ2bAXbsuUJHrVn4cFjd+9DmxbiOyn4DzB1qawEBlZ6AAAAAElFTkSuQmCC"
+										/>
+									</defs>
+									<style>
+									</style>
+									<use id="Background" href="#img1" x="4" y="3" />
+								</svg>
+							</div>
+							Search on our index (soon)
+						</dt>
+						<dd class="mt-2 text-base leading-7 text-gray-600">
+							When you search or query events, we search on our huge event index containing millions
+							of events indexed there.
 						</dd>
 					</div>
 					<div class="relative pl-16">
@@ -157,38 +191,12 @@
 									/>
 								</svg>
 							</div>
-							Simple queues
+							Updates
 						</dt>
 						<dd class="mt-2 text-base leading-7 text-gray-600">
-							Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor
-							congue commodo diam neque.
-						</dd>
-					</div>
-					<div class="relative pl-16">
-						<dt class="text-base font-semibold leading-7 text-gray-900">
-							<div
-								class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-jelly-blue"
-							>
-								<svg
-									class="h-6 w-6 text-white"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
-									/>
-								</svg>
-							</div>
-							Advanced security
-						</dt>
-						<dd class="mt-2 text-base leading-7 text-gray-600">
-							Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id
-							hac maecenas ac donec pharetra eget.
+							That's not all you get. We are actively working and adding new features and services
+							to the JellyFish, as we just started now. All new services will be available on your
+							current plan, no need for more sats or updates.
 						</dd>
 					</div>
 				</dl>
