@@ -1,3 +1,4 @@
+<!-- TODO: stick to the bottom of page -->
 <script>
 	import logo from '../assets/logo.webp';
 	import nostr from '../assets/icons/nostr.svg';

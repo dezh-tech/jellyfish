@@ -5,7 +5,7 @@
 
 <main class="relative">
 	<Header />
-	<div class="relative isolate px-6 pt-14 lg:px-8">
+	<div class="relative isolate px-6 pb-2 lg:px-8">
 		<div
 			class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
 			aria-hidden="true"
@@ -24,7 +24,67 @@
 					JellyFish Realy Terms of Service
 				</h2>
 			</div>
-			<div class="flex justidy-start pl-80 pt-28">HI</div>
+			<div class="flex justidy-start pl-80 pt-28">
+				This Terms of Sevice was provided by Nostream and edited for nostr.wine and this is an
+				updated version for JellyFish.
+				<br />
+				<br />
+				This terms of service is in beta version and its a subject to change.
+				<br />
+				<br />
+				This page contains the terms of service for all JellyFish services and projects.
+				<br />
+				Email support: jelly@dezh.tech
+				<br />
+				Nostr support: _@jellyfish.land
+				<br />
+				<br />
+
+				By joining to JellyFish relays, you agree:
+				<br />
+				<br />
+				* To not engage in spam.
+				<br />
+				* To not flood.
+				<br />
+				* To not expect content moderation.
+				<br />
+				* To not misuse or abuse the relay service and other supporting services.
+				<br />
+				* That requests to delete content you publish cannot be guaranteed in all relays and only it
+				will be removed from JellyFish relays.
+				<br />
+				* That this relay has no control over any content published in other relays
+				<br />
+				* That the service might be revoked to you at the operator's sole discretion if found in violation
+				of these terms
+				<br />
+				* To use the service in good faith and not seek to get the relay operator(s) in trouble
+				<br />
+				* That the content you publish to this relay will be further broadcasted to any interested client
+				and/or accepting relay
+				<br />
+				<br />
+
+				In addition you understand that:
+				<br />
+				<br />
+				* All JellyFish sales are final - NO refunds, returns, or cancellations.
+				<br />
+				* Nostr is a decentralized and distributed network of relays that relays data by users.
+				<br />
+				* Censorship resistance is practiced by posting to multiple relays and running your own private
+				relay.
+				<br />
+				* The responsibility of filtering and moderating is the sole responsibility of the users and
+				not of the relays.
+				<br />
+				* You may be inadvertently exposed to content that you might find triggering, disturbing, distasteful,
+				immoral or against your views.
+				<br />
+				* The relay operator is not liable and has no involvement in the type, quality and legality of
+				the content being produced by users of the relay.
+			</div>
 			<div
 				class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
 				aria-hidden="true"
@@ -35,6 +95,6 @@
 				></div>
 			</div>
 		</div>
-		<Footer />
 	</div>
+	<Footer />
 </main>
