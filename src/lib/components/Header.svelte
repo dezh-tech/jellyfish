@@ -12,7 +12,7 @@
 		</div>
 		<div class="flex lg:hidden"></div>
 		<div class="hidden lg:flex lg:gap-x-12">
-			<a href="#features" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
+			<a href="/" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
 			<a href="/terms-of-service" class="text-sm font-semibold leading-6 text-gray-900"
 				>Terms of Service</a
 			>
