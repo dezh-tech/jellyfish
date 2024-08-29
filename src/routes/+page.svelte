@@ -1,6 +1,4 @@
 <script lang="ts">
-	import logo from '$lib/assets/logo.webp';
-
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 </script>
@@ -56,6 +54,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- TODO: Fix background issue -->
 			<div
 				class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
 				aria-hidden="true"
@@ -68,6 +67,7 @@
 		</div>
 	</div>
 
+	<!-- TODO: make feature card component -->
 	<!--? Features ?-->
 	<div id="features" class="bg-white py-24 sm:py-32">
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">

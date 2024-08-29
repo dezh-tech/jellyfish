@@ -1,6 +1,4 @@
 <script lang="ts">
-	import logo from '$lib/assets/logo.webp';
-
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 </script>

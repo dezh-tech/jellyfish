@@ -17,7 +17,7 @@
 		<a href="/" class="font-extrabold text-jelly-blue pt-2">JellyFish</a>
 	</div>
 	<ul class="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
-		{#each footerNavs as item, idx}
+		{#each footerNavs as item}
 			<li class="hover:text-gray-800">
 				<a href={item.href}>
 					{item.name}
@@ -48,11 +48,3 @@
 		</div>
 	</div>
 </footer>
-
-<style>
-	.svg-icon path,
-	.svg-icon polygon,
-	.svg-icon rect {
-		fill: currentColor;
-	}
-</style>
