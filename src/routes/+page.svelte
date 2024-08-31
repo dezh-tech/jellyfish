@@ -43,7 +43,7 @@
 					<div class="mt-10 flex items-center justify-center gap-x-6">
 						<input
 							type="text"
-							placeholder={`Enter your npub or nip-05 address`}
+							placeholder="Enter your npub or nip-05 address"
 							class="w-[600px] pl-3 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-jelly-blue shadow-sm rounded-lg max-sm:w-[300px]"
 						/>
 						<button
