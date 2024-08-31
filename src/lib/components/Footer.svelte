@@ -1,4 +1,3 @@
-<!-- TODO: stick to the bottom of page -->
 <script>
 	import logo from '../assets/logo.webp';
 	import nostr from '../assets/icons/nostr.svg';
@@ -6,7 +5,7 @@
 
 	let footerNavs = [
 		{ href: '/terms-of-service', name: 'Terms of Service' },
-		{ href: '#home', name: 'Join Relay Now!' }
+		{ href: '/', name: 'Join Relay Now!' }
 	];
 </script>
 

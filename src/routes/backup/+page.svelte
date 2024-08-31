@@ -3,8 +3,8 @@
 	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<Header />
 <main class="relative">
+	<Header />
 	<div class="relative isolate px-6 pb-2 lg:px-8">
 		<div
 			class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -47,5 +47,5 @@
 			</div>
 		</div>
 	</div>
+	<Footer />
 </main>
-<Footer />
