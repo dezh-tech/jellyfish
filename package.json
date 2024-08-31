@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-static": "^3.0.4"
+		"@sveltejs/adapter-static": "^3.0.4",
+		"nostr-tools": "^2.7.2"
 	}
 }
