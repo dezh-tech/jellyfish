@@ -24,7 +24,7 @@
 					JellyFish Realy Terms of Service
 				</h2>
 			</div>
-			<div class="flex justidy-start pl-80 pt-28">
+			<div class="flex justidy-start lg:pl-80 pt-28">
 				This Terms of Sevice was provided by Nostream and edited for nostr.wine and this is an
 				updated version for JellyFish.
 				<br />
