@@ -66,10 +66,12 @@
 						>
 							<span class="text-jelly-blue">Backup</span> Your Notes
 						</h2>
-						<p class="mt-6 text-lg leading-8 text-gray-600 mb-8">
-							All backups will be downloaded on your device in a json file.
-							<br />
-							Remember your noted deleted using nip-09 won't be in backup result.
+						<p class="mt-6 text-base leading-6 text-gray-600 mb-6">
+							All backups will be downloaded to your device as a JSON file.<br />
+							<span class="block text-gray-500 text-sm mt-2">
+								Please note that notes deleted using nip-09, direct messages (encrypted/plain), and
+								notes that not published to JellyFish Relay won't be included in the backup.
+							</span>
 						</p>
 						<form action="">
 							<input
