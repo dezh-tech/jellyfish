@@ -6,8 +6,6 @@ import {
     VariantLabels,
 } from "framer-motion";
 import React from "react";
-{
-}
 type AnimateWrapperType = {
     duration?: number;
     whileInView?: VariantLabels | TargetAndTransition;
