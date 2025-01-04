@@ -1,7 +1,7 @@
 const HeroSection = () => {
     return (
         <section className="  pt-[212px] pb-[289px] relative  ">
-            <h1 className="gradient-text text text-center font-bold   text-[80px] uppercase max-w-[873px] mx-auto leading-[56px]  ">
+            <h1 className="gradient-text text text-center font-bold   text-[80px] uppercase max-w-[873px] mx-auto leading-[56px]  animate-fade-up ">
                 Stay
                 <br /> Immortal!
             </h1>

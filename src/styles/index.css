@@ -48,4 +48,7 @@
         @apply bg-clip-text text-transparent bg-gradient-to-r from-[#ACCDF2] via-[#D4E9F7] to-[#ACCDF2];
         text-shadow: 0px 0px 22.76px #a0c5f7a8;
     }
+    .purple-gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#F869B6] to-[#D34CD9];
+    }
 }
