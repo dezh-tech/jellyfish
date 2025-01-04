@@ -5,6 +5,7 @@ import {
     TargetAndTransition,
     VariantLabels,
 } from "framer-motion";
+import React from "react";
 {
 }
 type AnimateWrapperType = {
