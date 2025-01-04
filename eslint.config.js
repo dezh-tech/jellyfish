@@ -6,8 +6,7 @@ import prettier from "eslint-plugin-prettier";
 import tsParser from "@typescript-eslint/parser";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 
-export default [
-    {
+export default [{
         ignores: ["dist"],
     },
     {
@@ -33,7 +32,7 @@ export default [
                     allowConstantExport: true,
                 },
             ],
-            "prettier/prettier": false, // Prettier rule
+            "prettier/prettier": "warn", // Prettier rule
         },
     },
 ];
