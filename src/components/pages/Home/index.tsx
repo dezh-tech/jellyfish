@@ -1,6 +1,7 @@
 import HeroSection from "./HeroSection";
 import ServicesSection from "./Services";
 import TeamMembersSection from "./TeamMembers";
+import ContributeSection from "./ContributeSection";
 
 export const HomePage = () => {
     return (
@@ -8,6 +9,7 @@ export const HomePage = () => {
             <HeroSection />
             <ServicesSection />
             <TeamMembersSection />
+            <ContributeSection />
         </>
     );
 };

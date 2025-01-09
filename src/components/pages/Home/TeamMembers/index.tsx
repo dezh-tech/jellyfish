@@ -23,7 +23,7 @@ const TeamMembersSection = () => {
                 repeatDelay={1}
                 className={cn(
                     "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-                    "inset-x-0 inset-y-[70%] h-[30%] skew-y-0 opacity-50",
+                    "inset-x-0 inset-y-[48%] h-[10%] skew-y-0 opacity-60",
                 )}
             />
         </section>
