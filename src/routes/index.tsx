@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
                 path: "/set-username",
                 element: <SetUserName />,
             },
-            { 
+            {
                 path: "/payment-result",
                 element: <PaymentResult />,
             },
