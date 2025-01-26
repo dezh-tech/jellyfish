@@ -20,7 +20,10 @@ const Links = () => {
                     NIP-05 Service
                 </div>
             </Link>
-            <Link to="/" className="flex gap-2 items-center">
+            <Link
+                to="lightning:dezh@coinos.io"
+                className="flex gap-2 items-center"
+            >
                 <div>
                     <LightingIcon />
                 </div>
@@ -28,7 +31,10 @@ const Links = () => {
                     Zap Us
                 </div>
             </Link>
-            <Link to="/" className="flex gap-2 items-center">
+            <Link
+                to="nostr:npub1hu47u55pzjw8cdg0t5f2uvh4znrcvnl3pqz3st6p0pfcctzzzqrsplc46u"
+                className="flex gap-2 items-center"
+            >
                 <div>
                     <NostrIconPink />
                 </div>
@@ -74,7 +80,7 @@ const Navbar = () => {
                         <Links />
                     </div>
                     <div className="md:w-2/12 flex justify-end">
-                        <Button variant={"outline"}>
+                        <Button variant={"outline"} className="h-12">
                             <NostrIconWhite /> Log In
                         </Button>
                         {/* {user ? (
