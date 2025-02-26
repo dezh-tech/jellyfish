@@ -1,5 +1,6 @@
 import { NostrIconWhite } from "@/assets/icons/NostrIconWhite";
-import { Button } from "../../components/ui/Button";
+import { Button } from "@/components/ui/Button";
+
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
