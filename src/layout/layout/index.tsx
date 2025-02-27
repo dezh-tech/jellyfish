@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import AppSidebar from "./AppSidebar";
 import Cookies from "js-cookie";
 import { SidebarProvider } from "@/components/ui/Sidebar";
+import NoticeMessage from "./NoticeMessage";
 
 const RootLayout = () => {
     const { pathname } = useLocation();
@@ -40,6 +41,8 @@ const RootLayout = () => {
                 <div className="relative z-50">
                     {/* -- If App Open Ont the Large screen */}
                     <Navbar />
+
+                    <NoticeMessage />
 
                     <main className="container">
                         <Outlet />

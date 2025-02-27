@@ -51,16 +51,16 @@ const Dashboard = () => {
                             "linear-gradient(180deg, rgba(31, 36, 58, 0.75) 0%, rgba(17, 22, 40, 0.675) 100%)",
                     }}
                 >
-                    <header className="flex justify-between">
+                    <header className="flex justify-between gap-4 max-md:flex-col">
                         <p className="flex-1 text-[#ACCDF2] font-roboto-mono text-2xl sm:text-3xl md:text-4xl lg:text-[36px]">
                             365 days remain until the subscription is finished
                         </p>
 
                         <Link
-                            to={`/dashboard/edit/1`}
+                            to={`/relay`}
                             className={cn(
                                 buttonVariants(),
-                                "hidden md:flex min-w-[80px] sm:min-w-[96px] md:min-w-[104px] lg:min-w-[112px] h-10 sm:h-11 md:h-12 lg:h-12",
+                                "flex min-w-[80px] sm:min-w-[96px] md:min-w-[104px] lg:min-w-[112px] h-10 sm:h-11 md:h-12 lg:h-12",
                             )}
                         >
                             Renew

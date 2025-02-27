@@ -54,7 +54,7 @@ const DashboardSidebar = () => {
                 </div>
 
                 {/* Sidebar Footer */}
-                <div className="p-4 border-t border-gray-700">
+                <div className="p-4 border-t border-gray-700 md:hidden">
                     <div className="flex items-center gap-2 cursor-pointer">
                         <AuthenticationAction
                             isLogin

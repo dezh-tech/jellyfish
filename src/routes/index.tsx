@@ -9,6 +9,7 @@ import Dashboard from "@/components/pages/Dashboard";
 import SellRelay from "@/components/pages/SellRelay";
 import NpubEditForm from "@/components/pages/Dashboard/Edit";
 import DashboardLayout from "@/layout/dashboard-layout";
+import Maintanance from "@/components/pages/Maintanance";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: "relay",
                 element: <SellRelay />,
+            },
+            {
+                path: "maintanance",
+                element: <Maintanance />,
             },
         ],
     },
