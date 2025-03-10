@@ -26,7 +26,7 @@ const DashboardHeader = () => {
             </button>
 
             <div className="ml-auto grow-0 max-md:hidden">
-                <AuthenticationAction isLogin isCollapsed={false} />
+                <AuthenticationAction isCollapsed={false} />
             </div>
         </div>
     );

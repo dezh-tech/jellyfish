@@ -56,10 +56,7 @@ const DashboardSidebar = () => {
                 {/* Sidebar Footer */}
                 <div className="p-4 border-t border-gray-700 md:hidden">
                     <div className="flex items-center gap-2 cursor-pointer">
-                        <AuthenticationAction
-                            isLogin
-                            isCollapsed={isCollapsed}
-                        />
+                        <AuthenticationAction isCollapsed={isCollapsed} />
                     </div>
                 </div>
             </div>
