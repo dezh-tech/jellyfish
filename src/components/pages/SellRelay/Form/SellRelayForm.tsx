@@ -3,8 +3,7 @@ import useCheckAvailability from "./useCheckAvailability";
 import { Textfield } from "@/components/ui/Textfield";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { arrayRange, secondsToMonths } from "@/utils/functions";
 import { LightingIcon } from "@/assets/icons/nav/LightingIcon";
 import { Skeleton } from "@/components/ui/skeleton";
