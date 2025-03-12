@@ -4,10 +4,17 @@ import { useSidebar } from "../../components/ui/Sidebar";
 import MenuItems from "./MenuItems";
 import AuthenticationAction from "./AuthenticationActions";
 import { AlignJustify } from "lucide-react";
+import { useEffect } from "react";
+import { useActiveUser } from "nostr-hooks";
 
 const Navbar = () => {
-    //   const { user, logout } = useAuth();
     const { toggleSidebar } = useSidebar();
+
+    const { activeUser } = useActiveUser();
+
+    useEffect(() => {
+        console.log("Active User", activeUser);
+    }, [activeUser]);
 
     return (
         <nav className="">

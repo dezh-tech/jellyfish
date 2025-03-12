@@ -1,16 +1,40 @@
 import { NostrIconWhite } from "@/assets/icons/NostrIconWhite";
 import { Button } from "@/components/ui/Button";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+import { useLogin, useActiveUser } from "nostr-hooks";
+
 type Props = {
-    isLogin?: boolean;
     isCollapsed?: boolean;
 };
 
-const AuthenticationButton: React.FC<Props> = ({ isLogin, isCollapsed }) => {
-    if (isLogin) {
+const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
+    const { loginWithExtension, loginFromLocalStorage } = useLogin();
+    const { activeUser } = useActiveUser();
+    const profile = activeUser ? activeUser?.profile : null; // Set null, Not set undefined
+
+    useEffect(() => {
+        if (activeUser === null) {
+            loginFromLocalStorage();
+        }
+    }, [activeUser, loginFromLocalStorage]);
+
+    useEffect(() => {
+        console.log({ activeUser });
+    }, [activeUser]);
+
+    if (profile === undefined) {
+        // Handle laoding
+        return (
+            <Button variant="outline" className="w-full h-12 rounded-full">
+                <NostrIconWhite /> loading...
+            </Button>
+        );
+    }
+
+    if (profile) {
         return (
             <>
                 {isCollapsed ? (
@@ -44,7 +68,11 @@ const AuthenticationButton: React.FC<Props> = ({ isLogin, isCollapsed }) => {
     }
 
     return (
-        <Button variant="outline" className="w-full h-12 rounded-full">
+        <Button
+            variant="outline"
+            className="w-full h-12 rounded-full"
+            onClick={() => loginWithExtension()}
+        >
             <NostrIconWhite /> Log In
         </Button>
     );

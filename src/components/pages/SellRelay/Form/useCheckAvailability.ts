@@ -1,43 +1,62 @@
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 // import { useNavigate } from "react-router-dom";
 
 const schema = yup
     .object({
-        npub: yup.string().required("Username is required"),
-        month: yup.number().required("Month"),
+        npub: yup.string().required().required("Npub"),
+        month: yup.number().required().label("Plan"),
     })
     .required();
 
 const useCheckAvailability = () => {
     // const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
     const {
         register,
         handleSubmit,
         getValues,
         setValue,
-        formState: { errors },
+        control,
+        watch,
+        formState: { errors, isLoading, isSubmitting },
     } = useForm({
         resolver: yupResolver(schema),
     });
 
-    const onSubmit = async (data: { npub: string }) => {
-        console.log(data);
-        try {
-            setLoading(true);
-            // const res = await usernameService.checkAvailability(data.username);
-            // navigate(
-            //     `/set-username?username${data.username}&status=${res.data.data}`,
-            // );
-        } catch (error) {
-            console.log(error);
-            //  TODO : add toast
-        } finally {
-            setLoading(false);
-        }
+    // Mutations
+    const mutation = useMutation({
+        mutationFn: (inputData: { subscriber: string; planId: string }) => {
+            return fetch(
+                "https://api-manager.jellyfish.land/subscriptions/checkout-session",
+                {
+                    method: "POST",
+                    headers: {
+                        accept: "*/*",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(inputData),
+                },
+            ).then(res => res.text());
+        },
+        onSuccess: (res: string) => {
+            console.log({ res, con: res && res?.startsWith("https://") });
+            if (res && res.startsWith("https://")) {
+                window.location.href = res;
+            }
+        },
+        onError: err => {
+            console.error("Error", err);
+        },
+    });
+
+    const onSubmit = async (data: { npub: string; month: number }) => {
+        console.log("OnSubmit");
+        mutation.mutate({
+            subscriber: data.npub,
+            planId: data.month.toString(),
+        });
     };
 
     return {
@@ -46,8 +65,10 @@ const useCheckAvailability = () => {
         errors,
         getValues,
         setValue,
+        control,
+        watch,
         handleSubmit: handleSubmit(onSubmit),
-        loading,
+        loading: isLoading || isSubmitting || mutation.isLoading,
     };
 };
 
