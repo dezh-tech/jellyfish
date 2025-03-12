@@ -4,10 +4,11 @@ import { Textfield } from "@/components/ui/Textfield";
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { arrayRange, secondsToMonths } from "@/utils/functions";
 import { LightingIcon } from "@/assets/icons/nav/LightingIcon";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Controller } from "react-hook-form";
 
 type TSubscriptionsGetOutput = {
     fees: { subscription: TSubscriptions[] };
@@ -20,11 +21,17 @@ type TSubscriptions = {
 };
 
 const SellRelayForm = () => {
-    const { handleSubmit, register, setValue, getValues, errors } =
-        useCheckAvailability();
+    const {
+        handleSubmit,
+        register,
+        control,
+        errors,
+        watch,
+        loading: isLoadingCheckoutSubscription,
+    } = useCheckAvailability();
+    const selectedMonth = watch("month");
 
-    const [selectedMonth, setSelectedMonth] = useState<number>(-1);
-
+    // Queries
     const query = useQuery<TSubscriptionsGetOutput>({
         queryKey: ["subscriptions"],
         queryFn: () => {
@@ -36,18 +43,6 @@ const SellRelayForm = () => {
         },
     });
 
-    const handleCheckboxChange = (value: number) => {
-        const currentValue = getValues("month");
-        if (currentValue === value) {
-            // If the same checkbox is clicked, unselect it.
-            setSelectedMonth(-1);
-            setValue("month", -1);
-        } else {
-            setSelectedMonth(value);
-            setValue("month", value);
-        }
-    };
-
     return (
         <form
             onSubmit={handleSubmit}
@@ -57,7 +52,7 @@ const SellRelayForm = () => {
                 <div className="flex items-center gap-2 sm:gap-4 md:gap-6 lg:gap-4 animate-fade-up animate-delay-300">
                     <Textfield
                         className="flex-1 w-full"
-                        {...register("npub")}
+                        {...register("npub", { required: true })}
                         type="text"
                         placeholder="Input your inpub1..."
                     />
@@ -84,15 +79,25 @@ const SellRelayForm = () => {
                               <label
                                   key={`month-${item}`}
                                   className="flex items-center gap-2 px-4 py-3 border border-solid rounded-[14px] cursor-pointer border-stone-600"
-                                  htmlFor={`month-${item}`}
+                                  htmlFor={`month-${item.period}`}
                               >
-                                  <Checkbox
-                                      id={`month-${item}`}
-                                      value={item.period}
-                                      checked={selectedMonth === item.period}
-                                      onClick={() =>
-                                          handleCheckboxChange(item.period)
-                                      }
+                                  <Controller
+                                      key={item.period}
+                                      name={"month"}
+                                      control={control}
+                                      render={({ field }) => (
+                                          <Checkbox
+                                              {...field}
+                                              value={item.period}
+                                              checked={
+                                                  selectedMonth === item.period
+                                              }
+                                              id={`month-${item.period}`}
+                                              onClick={() =>
+                                                  field.onChange(item.period)
+                                              }
+                                          />
+                                      )}
                                   />
                                   <div className="gap-1.5 leading-none select-none flex items-center">
                                       <p className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
@@ -110,12 +115,23 @@ const SellRelayForm = () => {
                               </label>
                           ))}
                 </div>
+
+                {errors.month && (
+                    <p className="text-xs sm:text-sm md:text-base lg:text-sm text-[#F6543E] font-roboto-mono animate-fade-right">
+                        {errors.month.message}
+                    </p>
+                )}
             </div>
 
             <Button
                 className="w-full h-12 font-medium sm:h-14 md:h-16 lg:h-14 font-roboto-mono animate-fade-up animate-delay-500"
                 disabled={
-                    !!(query?.error || query?.isLoading || query?.isFetching)
+                    !!(
+                        query?.error ||
+                        query?.isLoading ||
+                        query?.isFetching ||
+                        isLoadingCheckoutSubscription
+                    )
                 }
                 type="submit"
             >
