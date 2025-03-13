@@ -53,7 +53,7 @@ const SellRelayForm = () => {
                         className="flex-1 w-full"
                         {...register("npub", { required: true })}
                         type="text"
-                        placeholder="Input your inpub1..."
+                        placeholder="Input your npub1..."
                     />
                 </div>
 

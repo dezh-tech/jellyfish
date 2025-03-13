@@ -12,7 +12,7 @@ export const servicesData: ServicesCardProps[] = [
     {
         title: "Relay Services",
         description:
-            "Let your friends to find you by your name on chaotic nostr ecosystem easily. Pay once keep it forever.",
+            "Join jellyfish relay; control your own data with easy migration using reliable synced multi-instance immortal relays over multiple regions.",
         icon: <RelayIcon />,
         isItPublished: true,
         href: "/relay",

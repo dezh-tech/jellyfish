@@ -63,7 +63,7 @@ const RootLayout = () => {
                     {/* -- If App Open Ont the Large screen */}
                     <Navbar />
 
-                    <NoticeMessage />
+                    {/* <NoticeMessage /> */}
 
                     <main className="container">
                         <Outlet />
