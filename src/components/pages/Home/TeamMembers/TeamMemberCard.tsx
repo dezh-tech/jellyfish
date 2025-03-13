@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { TeamMembersCardProps } from "./data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { NostrIconPink } from "@/assets/icons/nav/NostrIconPink";
 
 const TeamMemberCard = ({
     avatar,
@@ -20,11 +21,11 @@ const TeamMemberCard = ({
                 <AvatarFallback>{name}</AvatarFallback>
             </Avatar>
             <div>
-                <div className="text-xs sm:text-sm md:text-base lg:text-lg font-robotoMono">
-                    {role}
-                </div>
                 <div className="text-base gradient-text sm:text-lg md:text-xl lg:text-2xl">
                     {name}
+                </div>
+                <div className="text-xs sm:text-sm md:text-base lg:text-lg font-robotoMono">
+                    {role}
                 </div>
             </div>
             <a href={followLink} className="font-robotoMono">
@@ -32,6 +33,7 @@ const TeamMemberCard = ({
                     className="text-xs sm:text-sm md:text-base lg:text-lg"
                     size="sm"
                 >
+                    <NostrIconPink />
                     {`Follow ${nickname}`}
                 </Button>
             </a>

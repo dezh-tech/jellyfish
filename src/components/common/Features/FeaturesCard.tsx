@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 
 const wordsToLink = {
     NSaaS: "https://nsass",
+    Immortal: "https://github.com/dezh-tech/immortal",
 };
 
 const FeaturesCard = ({
