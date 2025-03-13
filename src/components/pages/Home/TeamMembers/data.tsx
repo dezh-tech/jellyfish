@@ -37,7 +37,8 @@ export const teamMembersData: TeamMembersCardProps[] = [
         role: "Software Engineer",
         name: "Praxeologist",
         nickname: "",
-        followLink: "https://njump.me/nprofile1qqsw4tud4td89zlkyv2y8tycn72j7zkmv4ahhxupzrj2dqmsdwfcuhq9gcpl5",
+        followLink:
+            "https://njump.me/nprofile1qqsw4tud4td89zlkyv2y8tycn72j7zkmv4ahhxupzrj2dqmsdwfcuhq9gcpl5",
     },
     {
         avatar: {
@@ -67,6 +68,7 @@ export const teamMembersData: TeamMembersCardProps[] = [
         role: "Product Designer",
         name: "Ehsan",
         nickname: "",
-        followLink: "https://njump.me/nprofile1qqsrryh9pq4l09sa568enwr6u3quu4j5745a9rcmpg5m6kg45jnk3zs0ast79",
-    }
+        followLink:
+            "https://njump.me/nprofile1qqsrryh9pq4l09sa568enwr6u3quu4j5745a9rcmpg5m6kg45jnk3zs0ast79",
+    },
 ];

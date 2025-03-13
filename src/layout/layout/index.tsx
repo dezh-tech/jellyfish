@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import AppSidebar from "./AppSidebar";
 import Cookies from "js-cookie";
 import { SidebarProvider } from "@/components/ui/Sidebar";
-import NoticeMessage from "./NoticeMessage";
+// import NoticeMessage from "./NoticeMessage";
 import { useNdk } from "nostr-hooks";
 import { useEffect } from "react";
 

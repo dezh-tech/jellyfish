@@ -10,7 +10,8 @@ export const relayFeaturesData = [
     {
         icon: <InfinityIcon />,
         title: "Modern",
-        description: "We run a modern relay implementation with maximum NIPs support and on going development.",
+        description:
+            "We run a modern relay implementation with maximum NIPs support and on going development.",
     },
     {
         icon: <ShortNameIcon />,
