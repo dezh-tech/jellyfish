@@ -1,5 +1,3 @@
-import SectionTitle from "@/components/ui/SectionTitle";
-
 const HeroSection = () => {
     return (
         <section className="pt-[100px] pb-[150px] md:pt-[150px] md:pb-[200px] lg:pt-[212px] lg:pb-[289px] xl:pb-[350px] relative">
