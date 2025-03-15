@@ -11,7 +11,7 @@ const ServicesCard = ({
         <div className="w-full max-h-[284px] h-[284px] relative text-center rounded-[22px] p-[1px] bg-gradient-to-tl from-[#A0C5F7] to-[#111628]/[0.62]">
             <div className="bg-[url(/svg/services-bg.svg)] bg-[#141B30] bg-cover bg-center rounded-[20px] px-4 py-[33px] flex-grow h-full grid grid-cols-1 grid-rows-3 ">
                 {/* -- Icon -- */}
-                <div className="flex justify-center row-span-1">
+                <div className="flex justify-center flex-shrink-0 row-span-1">
                     <GradientIconBox>{icon}</GradientIconBox>
                 </div>
 

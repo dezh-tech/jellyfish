@@ -18,11 +18,11 @@ const TeamMembersSection = () => {
             </SectionTitle>
             <AnimateWrapper delay={0.4}>
                 <Carousel className="w-full">
-                    <CarouselContent>
+                    <CarouselContent className="gap-4">
                         {teamMembersData.map((service, key) => (
                             <CarouselItem
                                 key={key}
-                                className="basis-[150px] sm:basis-[170px] md:basis-[180px] lg:basis-[190px]"
+                                className="basis-[150px] sm:basis-[170px] md:basis-[180px] lg:basis-[190px] last:pr-4"
                             >
                                 <TeamMemberCard {...service} />
                             </CarouselItem>

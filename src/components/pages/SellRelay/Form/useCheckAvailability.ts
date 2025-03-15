@@ -52,7 +52,6 @@ const useCheckAvailability = () => {
     });
 
     const onSubmit = async (data: { npub: string; month: number }) => {
-        console.log("OnSubmit");
         mutation.mutate({
             subscriber: data.npub,
             planId: data.month.toString(),
