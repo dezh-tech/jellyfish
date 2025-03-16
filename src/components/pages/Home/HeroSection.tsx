@@ -1,3 +1,6 @@
+import { Button } from "@/components/ui/Button";
+import { Link } from "react-router-dom";
+
 const HeroSection = () => {
     return (
         <section className="pt-[100px] pb-[150px] md:pt-[150px] md:pb-[200px] lg:pt-[212px] lg:pb-[289px] xl:pb-[350px] relative">
@@ -8,6 +11,16 @@ const HeroSection = () => {
             <p className="font-roboto-mono max-w-[80%] sm:max-w-[60%] md:max-w-[503px] mx-auto text-center mt-4 md:mt-6 lg:mt-8 text-base sm:text-lg md:text-xl">
                 Endlessly enjoy freedom social with ultimate JellyFish services.
             </p>
+
+            <div className="flex items-center justify-center w-full">
+                <Button
+                    variant="outline"
+                    className="h-12 mt-4 rounded-full w-fit md:mt-6 lg:mt-8"
+                    asChild
+                >
+                    <Link to="/relay">Join relay now!</Link>
+                </Button>
+            </div>
 
             <div className="-z-20 absolute -bottom-[20%] sm:-bottom-[30%] md:-bottom-[35%] lg:-bottom-[43%] left-1/2 -translate-x-1/2 w-[80%] max-w-[806px] ">
                 <img
