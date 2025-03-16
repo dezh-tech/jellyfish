@@ -9,14 +9,14 @@ const ContributeSection = () => {
         <section className="pt-16 sm:pt-24 md:pt-32 lg:pt-[212px] pb-16 sm:pb-24 md:pb-32 lg:pb-[289px] flex flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-12">
             <GitHubIcon />
             <h1 className="gradient-text text-center font-bold text-base sm:text-xl md:text-3xl lg:text-5xl uppercase max-w-full sm:max-w-lg md:max-w-xl lg:max-w-[900px] mx-auto leading-8 sm:leading-10 md:leading-12 lg:leading-[70px] animate-fade-up">
-                Contribute to JellyFish development
+                Contribute to JellyFish
             </h1>
             <p className="font-roboto-mono text-center text-base sm:text-md md:text-lg lg:text-xl max-w-full sm:max-w-lg md:max-w-xl lg:max-w-[900px] mx-auto">
-                The JellyFish used free and open source software to provide
+                The JellyFish uses free and open source software to provide
                 services. you can be a part of jellyfish software ecosystem
                 development!
             </p>
-            <a href="https://github.com/dezh-tech/jellyfish">
+            <a href="https://github.com/dezh-tech">
                 <Button
                     className="h-8 sm:h-10 md:h-12 lg:h-9"
                     variant="outline"

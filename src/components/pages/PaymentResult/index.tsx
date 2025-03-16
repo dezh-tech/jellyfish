@@ -8,16 +8,20 @@ const PaymentResult = () => {
     const [searchParams] = useSearchParams();
     const paymentStatus = searchParams.get("status");
     const isItPayed = Number(paymentStatus) === PaymentStatus.SUCCESSFUL;
-    const title = isItPayed ? "Payment was Successful" : "Payment was Failed";
+    const title = isItPayed
+        ? "Welcome to Jellyfish club!"
+        : "Oh no, Something went wrong!";
     const description = isItPayed
-        ? "You can use your NIP-05 address on your client right now and share it with everyone!"
-        : " ";
+        ? "You can publish your notes to jellyfish relay now!"
+        : "If the sats are gone from your wallet, try to contact us on nostr or using email for support.";
 
     return (
         <main className="space-y-12 sm:space-y-14 md:space-y-16 lg:space-y-16 mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-[254px] min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[90dvh]">
             <div className="flex flex-col items-center gap-6 sm:gap-7 md:gap-8 lg:gap-7">
-                <Tag className="animate-fade-down animate-delay-100">
-                    Payment result
+                <Tag
+                    className={`${isItPayed ? "text-green-500" : "text-red-500"} animate-fade-down animate-delay-100`}
+                >
+                    {isItPayed ? "Success" : "Failed"}
                 </Tag>
                 <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-4">
                     <h2 className="gradient-text text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[64px] uppercase animate-fade-up animate-delay-300">
@@ -34,16 +38,20 @@ const PaymentResult = () => {
                             buttonVariants({ variant: "secondary" }),
                             "flex-1",
                         )}
-                        to={isItPayed ? "/" : "/availability"}
+                        to={isItPayed ? "/" : "mailto:hi@dezh.tech"}
                     >
-                        {isItPayed ? "Back to home" : "Choose another name"}
+                        {isItPayed ? "Back to home" : "Contact support"}
                     </Link>
-                    <Link
-                        className={cn(buttonVariants(), "flex-1")}
-                        to="/availability"
-                    >
-                        {isItPayed ? "Manage" : "Try again"}
-                    </Link>
+                    {!isItPayed ? (
+                        <Link
+                            className={cn(buttonVariants(), "flex-1")}
+                            to="/relay"
+                        >
+                            Try again
+                        </Link>
+                    ) : (
+                        ""
+                    )}
                 </div>
             </div>
         </main>
