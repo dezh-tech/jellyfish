@@ -1,6 +1,4 @@
-import { RelayIcon } from "@/assets/icons";
 import { LightingIcon } from "@/assets/icons/nav/LightingIcon";
-import { NostrIconPink } from "@/assets/icons/nav/NostrIconPink";
 import { Link } from "react-router-dom";
 
 const MenuItems = () => {
@@ -8,7 +6,7 @@ const MenuItems = () => {
         <>
             <Link to="/relay" className="flex items-center gap-2">
                 <div className="flex-shrink-0">
-                    <RelayIcon />
+                    <img src="/svg/relay.svg" alt="relay" />
                 </div>
                 <div className="text-lg font-medium gradient-text font-roboto-mono">
                     Relay Service
@@ -30,7 +28,7 @@ const MenuItems = () => {
                 className="flex items-center gap-2"
             >
                 <div className="flex-shrink-0">
-                    <NostrIconPink />
+                    <img src="/svg/nostr.svg" alt="relay" />
                 </div>
                 <div className="bg-gradient-to-r from-[#F869B6] to-[#D34CD9] bg-clip-text text-transparent font-roboto-mono font-medium text-lg">
                     Nostr

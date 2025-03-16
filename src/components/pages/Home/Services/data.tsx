@@ -1,5 +1,5 @@
 import { TitleDescriptionT } from "@/@types/global";
-import { NipIcon, RelayIcon } from "@/assets/icons";
+import { NipIcon } from "@/assets/icons";
 import { ReactNode } from "react";
 
 export type ServicesCardProps = {
@@ -12,8 +12,8 @@ export const servicesData: ServicesCardProps[] = [
     {
         title: "Relay Services",
         description:
-            "Join jellyfish relay; control your own data with easy migration using reliable synced multi-instance immortal relays over multiple regions.",
-        icon: <RelayIcon />,
+            "Let your friends to find you by your name on chaotic nostr ecosystem easily. Pay once keep it forever.",
+        icon: <img src="/svg/relay.svg" alt="relay" />,
         isItPublished: true,
         href: "/relay",
     },
@@ -21,6 +21,6 @@ export const servicesData: ServicesCardProps[] = [
         title: "NIP-05 Service",
         description:
             "Let your friends to find you by your name on chaotic nostr ecosystem easily. Pay once keep it forever.",
-        icon: <NipIcon />,
+        icon: <NipIcon className="flex-shrink-0" />,
     },
 ];
