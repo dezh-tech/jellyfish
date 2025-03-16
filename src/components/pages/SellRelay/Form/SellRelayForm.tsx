@@ -34,7 +34,7 @@ const SellRelayForm = () => {
     const query = useQuery<TSubscriptionsGetOutput>({
         queryKey: ["subscriptions"],
         queryFn: () => {
-            return fetch("https://api-manager.jellyfish.land/", {
+            return fetch(`${import.meta.env.VITE_API_BASE_URL}/`, {
                 headers: {
                     Accept: "application/nostr+json",
                 },
