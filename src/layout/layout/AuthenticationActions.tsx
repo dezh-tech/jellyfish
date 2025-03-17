@@ -73,7 +73,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
             className="w-full h-12 rounded-full"
             onClick={() => loginWithExtension()}
         >
-            <NostrIconWhite /> Log In
+            <img src="/svg/nostr.svg" alt="nostr icon" /> Log In
         </Button>
     );
 };

@@ -29,7 +29,7 @@ const useCheckAvailability = () => {
     const mutation = useMutation({
         mutationFn: (inputData: { subscriber: string; planId: string }) => {
             return fetch(
-                "https://api-manager.jellyfish.land/subscriptions/checkout-session",
+                `${import.meta.env.VITE_API_BASE_URL}/subscriptions/checkout-session`,
                 {
                     method: "POST",
                     headers: {
