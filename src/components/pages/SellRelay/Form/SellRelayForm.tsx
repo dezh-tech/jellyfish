@@ -123,7 +123,7 @@ const SellRelayForm = () => {
             </div>
 
             <Button
-                className="w-full h-12 font-medium sm:h-14 md:h-16 lg:h-14 font-roboto-mono animate-fade-up animate-delay-500"
+                className="w-full h-12 font-medium sm:h-14 md:h-16 lg:h-14 font-roboto-mono animate-fade-up animate-delay-500 rounded-full"
                 disabled={
                     !!(
                         query?.error ||
@@ -133,6 +133,7 @@ const SellRelayForm = () => {
                     )
                 }
                 type="submit"
+                variant="outline"
             >
                 Submit
             </Button>
