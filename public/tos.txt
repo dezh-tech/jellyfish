@@ -1,0 +1,61 @@
+# Jellyfish Terms of Services
+
+Last updated: 21 March 2025
+
+By accessing in any way or paying for the services, you agree to the following Terms of Service.
+
+This ToS was provided by Nostr Land relay services and modified to be used in Jellyfish.
+
+# Definitions
+
+"We" refers to the operator of this service.
+"Service(s)" refers to the Jellyfish Relay/NIP-05 server/Media server, and the payment interfaces.
+"You" refers to you, the user of the services.
+
+## Disclaimer
+
+This service (and supporting services) are provided "as is", without
+warranty of any kind, express or implied, including but not limited
+to the warranties of merchantability, fitness for a particular purpose
+and noninfringement.
+
+## Purchase Terms
+
+By paying for the services, you agree that:
+- All payments are final, and are non-refundable.
+- We may revoke your access to services you have paid for any reason
+  without a refund.
+
+## Relay Usage Terms
+
+By using this relay in any way, you agree that:
+- You are solely responsible for checking for any updates to this ToS
+  regularly.
+- By continuing to use the relay after a ToS change, you automatically
+  agree to the new ToS.
+- You will not engage in spam or any attempt of DoS attack against the
+  services.
+- You will not disseminate any content in the following categories using
+  the services:
+  - CSAM
+  - Spam
+- We may collect your IP address and public key for the purpose of
+  combatting abuse, and may share it in full, truncated or hashed form
+  with other parties for the sole purpose of mitigating abuse.
+- You will not attempt to impede the rights of others to use this
+  relay.
+- Your access to the service may be blocked, throttled or restricted at
+  any time.
+- Your content on the service may be removed or altered at any time.
+- The services provided to you may be shut down, change ownership or
+  otherwise altered at any time.
+
+You agree that you are also fully aware that:
+- The services come with no guarantee of moderation, and that we are not
+  liable for the content you are exposed to.
+- That we only control the relay service we provide, and cannot provide
+  support or help for any matters related to other relays.
+- That requests for deletion of content is only guaranteed on Jellyfish relays 
+  and not other relays due the protocol design.
+- That we are not liable and have no involvement in the type, quality or
+  legality of the content produced by the users of the relay.
