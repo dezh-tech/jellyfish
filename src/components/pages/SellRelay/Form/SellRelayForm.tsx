@@ -122,6 +122,10 @@ const SellRelayForm = () => {
                 )}
             </div>
 
+            <div>
+            By clicking on submit you are agree with our <a href="https://jellyfish.land/tos.txt" className="underline">ToS</a>.
+            </div>
+
             <Button
                 className="w-full h-12 font-medium sm:h-14 md:h-16 lg:h-14 font-roboto-mono animate-fade-up animate-delay-500 rounded-full"
                 disabled={
