@@ -133,7 +133,7 @@ const SellRelayForm = () => {
                     )
                 }
                 type="submit"
-                variant='outline'
+                variant="outline"
             >
                 Submit
             </Button>
