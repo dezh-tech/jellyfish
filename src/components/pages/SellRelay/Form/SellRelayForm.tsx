@@ -123,7 +123,11 @@ const SellRelayForm = () => {
             </div>
 
             <div>
-            By clicking on submit you are agree with our <a href="https://jellyfish.land/tos.txt" className="underline">ToS</a>.
+                By clicking on submit you are agree with our{" "}
+                <a href="https://jellyfish.land/tos.txt" className="underline">
+                    ToS
+                </a>
+                .
             </div>
 
             <Button
