@@ -33,6 +33,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
             const filters = [
                 {
                     kinds: [0],
+                    limit: 1,
                     authors: [pubKey],
                 },
             ];
@@ -61,7 +62,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
             ) {
                 // Set profile to store
                 const parsedProfile = JSON.parse(data?.events[0].content);
-                if (parsedProfile) {
+                if (parsedProfile && parsedProfile !== profile) {
                     setProfile(parsedProfile);
                 }
             }
@@ -75,19 +76,28 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
         if (pubKey) {
             getProfileQuery.refetch();
         }
-    }, [pubKey, getProfileQuery]);
+    }, [pubKey]);
 
     useEffect(() => {
-        setProfileToStore(getProfileQuery.data);
-    }, [getProfileQuery]);
+        console.log("Running");
+        if (getProfileQuery.isFetched) {
+            setProfileToStore(getProfileQuery.data);
+            console.log(
+                "getProfileQuery.data",
+                getProfileQuery.isLoading,
+                getProfileQuery.isFetching,
+                getProfileQuery.data,
+            );
+        }
+    }, [getProfileQuery.isFetched]);
 
     useEffect(() => {
         if (activeUser?.pubkey && activeUser?.pubkey !== pubKey) {
             setPubKey(activeUser?.pubkey);
         }
-    }, [activeUser, pubKey, setPubKey]);
+    }, [activeUser]);
 
-    if (getProfileQuery?.isFetching) {
+    if (getProfileQuery?.isLoading && getProfileQuery?.isFetching) {
         // Handle laoding
         return (
             <Button variant="outline" className="w-full h-12 rounded-full">
@@ -102,26 +112,32 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
                 {isCollapsed ? (
                     <Avatar className="w-8 h-8" title="John Doe">
                         <AvatarImage
-                            src="/images/team-members/1.png"
+                            src={
+                                profile?.picture ??
+                                "/images/avatar-paceholder.png"
+                            }
                             alt="User Avatar"
                         />
-                        <AvatarFallback>My User Name</AvatarFallback>
+                        <AvatarFallback>User name</AvatarFallback>
                     </Avatar>
                 ) : (
                     <Button
                         variant="outline"
-                        className="justify-start w-full h-12 rounded-full"
+                        className="justify-start min-w-[100px] w-full h-12 rounded-full"
                     >
                         <Avatar className="w-8 h-8 shrink-0">
                             <AvatarImage
-                                src="/images/team-members/1.png"
+                                src={
+                                    profile?.picture ??
+                                    "/images/avatar-paceholder.png"
+                                }
                                 alt="User Avatar"
                             />
-                            <AvatarFallback>My User Name</AvatarFallback>
+                            <AvatarFallback>User name</AvatarFallback>
                         </Avatar>
 
                         <p className="text-sm font-medium line-clamp-1">
-                            John Doe
+                            {profile?.display_name ?? pubKey?.substring(0, 6)}
                         </p>
                     </Button>
                 )}

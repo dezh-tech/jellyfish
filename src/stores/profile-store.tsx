@@ -2,8 +2,8 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 type TProfile = {
-    icon?: string;
-    displayName?: string;
+    picture?: string;
+    display_name?: string;
 };
 
 type State = {
@@ -13,7 +13,7 @@ type State = {
 
 type Actions = {
     setPubKey: (pubKey: string) => void;
-    setProfile: (profile: TProfile) => void;
+    setProfile: (picture: TProfile) => void;
 };
 
 type Store = State & Actions;
