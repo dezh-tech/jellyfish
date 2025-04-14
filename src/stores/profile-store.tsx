@@ -9,11 +9,13 @@ type TProfile = {
 type State = {
     pubKey?: string;
     profile?: TProfile;
+    token?: string;
 };
 
 type Actions = {
     setPubKey: (pubKey: string) => void;
     setProfile: (picture: TProfile) => void;
+    setToken: (token?: string) => void;
 };
 
 type Store = State & Actions;
@@ -23,6 +25,7 @@ const useProfileStore = create(
         set => ({
             setPubKey: (pubKey: string) => set({ pubKey }),
             setProfile: (profile?: TProfile) => set({ profile }),
+            setToken: (token?: string) => set({ token }),
         }),
         {
             name: "profile-storage",

@@ -8,6 +8,8 @@ import { useLogin, useActiveUser } from "nostr-hooks";
 import useProfileStore from "@/stores/profile-store";
 import { useQuery } from "@tanstack/react-query";
 
+import { useNip98 } from "nostr-hooks";
+
 type Props = {
     isCollapsed?: boolean;
 };
@@ -19,11 +21,11 @@ type TProfileGetOutput = {
 const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
     const { loginWithExtension } = useLogin();
     const { activeUser } = useActiveUser();
+    const { getToken } = useNip98();
 
     // Get and Set pubKey from profile store
-    const { pubKey, profile, setPubKey, setProfile } = useProfileStore(
-        state => state,
-    );
+    const { pubKey, profile, setToken, setPubKey, setProfile } =
+        useProfileStore(state => state);
 
     // Get Profile Api
     const getProfileQuery = useQuery<TProfileGetOutput>({
@@ -79,21 +81,32 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
     }, [pubKey]);
 
     useEffect(() => {
-        console.log("Running");
         if (getProfileQuery.isFetched) {
             setProfileToStore(getProfileQuery.data);
-            console.log(
-                "getProfileQuery.data",
-                getProfileQuery.isLoading,
-                getProfileQuery.isFetching,
-                getProfileQuery.data,
-            );
         }
     }, [getProfileQuery.isFetched]);
 
     useEffect(() => {
+        console.log(
+            "LOGIN USER",
+            activeUser,
+            pubKey,
+            activeUser?.pubkey && activeUser?.pubkey !== pubKey,
+        );
         if (activeUser?.pubkey && activeUser?.pubkey !== pubKey) {
             setPubKey(activeUser?.pubkey);
+            getToken({
+                method: "GET",
+                url:
+                    import.meta.env.VITE_API_BASE_URL +
+                    "/subscriptions/remaining",
+            })
+                .then(token => {
+                    setToken(token);
+                })
+                .catch(err => {
+                    console.error("Error get token: ", err);
+                });
         }
     }, [activeUser]);
 
@@ -106,7 +119,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
         );
     }
 
-    if (profile) {
+    if (profile || pubKey) {
         return (
             <>
                 {isCollapsed ? (
