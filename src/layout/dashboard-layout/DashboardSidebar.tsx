@@ -5,7 +5,6 @@ import {
     ChevronRight,
     HomeIcon,
     LogOutIcon,
-    XIcon,
 } from "lucide-react";
 import { JellyFishIcon } from "@/assets/icons/nav/JellyFishIcon";
 import { Link } from "react-router-dom";
