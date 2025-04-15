@@ -10,6 +10,7 @@ import SellRelay from "@/components/pages/SellRelay";
 import NpubEditForm from "@/components/pages/Dashboard/Edit";
 import DashboardLayout from "@/layout/dashboard-layout";
 import Maintanance from "@/components/pages/Maintanance";
+import { ProtectedRoute } from "@/components/common/ProtectedRoute";
 
 export const router = createBrowserRouter([
     {
@@ -43,16 +44,21 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path: "dashboard",
-        element: <DashboardLayout />,
+        element: <ProtectedRoute />,
         children: [
             {
-                path: "",
-                element: <Dashboard />,
-            },
-            {
-                path: "edit/:id",
-                element: <NpubEditForm />,
+                path: "dashboard",
+                element: <DashboardLayout />,
+                children: [
+                    {
+                        path: "",
+                        element: <Dashboard />,
+                    },
+                    {
+                        path: "edit/:id",
+                        element: <NpubEditForm />,
+                    },
+                ],
             },
         ],
     },
