@@ -1,11 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import SidebarItem from "./SidebarItem";
-import {
-    ChevronLeft,
-    ChevronRight,
-    HomeIcon,
-    LogOutIcon,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, HomeIcon, LogOutIcon } from "lucide-react";
 import { JellyFishIcon } from "@/assets/icons/nav/JellyFishIcon";
 import { Link } from "react-router-dom";
 import { useDashboardSidebar } from "./DashboardSidebarContext";
