@@ -14,7 +14,7 @@ const HeroSection = () => {
 
             <div className="flex items-center justify-center w-full">
                 <Button
-                    variant="outline"
+                    variant="secondary"
                     className="h-12 mt-4 rounded-full w-fit md:mt-6 lg:mt-8"
                     asChild
                 >
