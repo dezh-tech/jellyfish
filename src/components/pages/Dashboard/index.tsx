@@ -5,6 +5,7 @@ import useProfileStore from "@/stores/profile-store";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getRemaningFormattedTime } from "@/utils/dayjs";
 
 const Dashboard = () => {
     const { profile, pubKey } = useProfileStore(state => state);
@@ -70,8 +71,7 @@ const Dashboard = () => {
                         ) : (
                             <>
                                 <p className="flex-1 text-[#ACCDF2] font-roboto-mono text-2xl sm:text-3xl md:text-4xl lg:text-[36px]">
-                                    {remaring ?? 0} day{remaring > 1 ? "s" : ""}{" "}
-                                    remain until the subscription is finished
+                                    {getRemaningFormattedTime(remaring)}
                                 </p>
 
                                 <Link

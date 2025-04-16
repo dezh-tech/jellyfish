@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/Button";
 import SidebarItem from "./SidebarItem";
-import { ChevronLeft, ChevronRight, HomeIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, HomeIcon, LogOutIcon } from "lucide-react";
 import { JellyFishIcon } from "@/assets/icons/nav/JellyFishIcon";
 import { Link } from "react-router-dom";
 import { useDashboardSidebar } from "./DashboardSidebarContext";
 import AuthenticationAction from "./../layout/AuthenticationActions";
+import { useAuth } from "@/providers/AuthProvider";
 
 const DashboardSidebar = () => {
     const { isCollapsed, toggleCollapse } = useDashboardSidebar();
+    const { logout } = useAuth();
 
     return (
         <>
@@ -54,10 +56,23 @@ const DashboardSidebar = () => {
                 </div>
 
                 {/* Sidebar Footer */}
-                <div className="p-4 border-t border-gray-700 md:hidden">
-                    <div className="flex items-center gap-2 cursor-pointer">
+                <div className="p-4 border-t border-gray-700 ">
+                    <div className="flex items-center gap-2 mb-4 cursor-pointer md:hidden">
                         <AuthenticationAction isCollapsed={isCollapsed} />
                     </div>
+
+                    <Button
+                        className="w-full text-red-700 "
+                        onClick={() => {
+                            if (logout) logout();
+                        }}
+                    >
+                        <SidebarItem
+                            icon={<LogOutIcon className="w-5 h-5 " />}
+                            label="Log Out"
+                            isCollapsed={isCollapsed}
+                        />
+                    </Button>
                 </div>
             </div>
         </>

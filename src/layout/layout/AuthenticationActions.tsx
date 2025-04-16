@@ -9,6 +9,7 @@ import useProfileStore from "@/stores/profile-store";
 import { useQuery } from "@tanstack/react-query";
 
 import { useNip98 } from "nostr-hooks";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     isCollapsed?: boolean;
@@ -19,12 +20,13 @@ type TProfileGetOutput = {
 };
 
 const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
+    const navigate = useNavigate();
     const { loginWithExtension } = useLogin();
     const { activeUser } = useActiveUser();
     const { getToken } = useNip98();
 
     // Get and Set pubKey from profile store
-    const { pubKey, profile, setToken, setPubKey, setProfile } =
+    const { pubKey, profile, setToken, setPubKey, setProfile, setIsLoggedIn } =
         useProfileStore(state => state);
 
     // Get Profile Api
@@ -74,6 +76,10 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
         }
     };
 
+    const handleNavigateToDashboard = () => {
+        navigate("/dashboard");
+    };
+
     useEffect(() => {
         if (pubKey) {
             getProfileQuery.refetch();
@@ -87,12 +93,6 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
     }, [getProfileQuery.isFetched]);
 
     useEffect(() => {
-        console.log(
-            "LOGIN USER",
-            activeUser,
-            pubKey,
-            activeUser?.pubkey && activeUser?.pubkey !== pubKey,
-        );
         if (activeUser?.pubkey && activeUser?.pubkey !== pubKey) {
             setPubKey(activeUser?.pubkey);
             getToken({
@@ -103,6 +103,8 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
             })
                 .then(token => {
                     setToken(token);
+                    setIsLoggedIn(true);
+                    handleNavigateToDashboard();
                 })
                 .catch(err => {
                     console.error("Error get token: ", err);
@@ -123,26 +125,35 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
         return (
             <>
                 {isCollapsed ? (
-                    <Avatar className="w-8 h-8" title="John Doe">
+                    <Avatar
+                        className="w-8 h-8"
+                        title={profile?.display_name ?? pubKey?.substring(0, 6)}
+                        onClick={() => handleNavigateToDashboard()}
+                    >
                         <AvatarImage
                             src={
                                 profile?.picture ??
-                                "/images/avatar-paceholder.png"
+                                "/images/avatar-paceholder1.png"
                             }
                             alt="User Avatar"
                         />
-                        <AvatarFallback>User name</AvatarFallback>
+                        <AvatarFallback>
+                            {" "}
+                            {profile?.display_name ?? pubKey?.substring(0, 6)}
+                        </AvatarFallback>
                     </Avatar>
                 ) : (
                     <Button
                         variant="outline"
                         className="justify-start min-w-[100px] w-full h-12 rounded-full"
+                        onClick={() => handleNavigateToDashboard()}
+                        title={profile?.display_name ?? pubKey?.substring(0, 6)}
                     >
                         <Avatar className="w-8 h-8 shrink-0">
                             <AvatarImage
                                 src={
                                     profile?.picture ??
-                                    "/images/avatar-paceholder.png"
+                                    "/images/avatar-paceholder1.png"
                                 }
                                 alt="User Avatar"
                             />
