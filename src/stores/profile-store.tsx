@@ -37,7 +37,7 @@ const useProfileStore = create(
             setProfile: (profile?: TProfile) => set({ profile }),
             setIsLoggedIn: (isLoggedIn?: boolean) => set({ isLoggedIn }),
             setToken: (token?: string) => set({ token }),
-            reset: () => set(initState),
+            reset: () => set({ ...initState }),
         }),
         {
             name: "profile-storage",
