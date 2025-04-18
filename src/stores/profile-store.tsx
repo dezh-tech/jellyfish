@@ -32,22 +32,21 @@ type Store = State & Actions;
 
 const useProfileStore = create(
     persist<Store>(
-        (set) => ({
+        set => ({
             ...initialState,
-            setPubKey: (pubKey) => set({ pubKey }),
-            setProfile: (profile) => set({ profile }),
-            setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
-            setToken: (token) => set({ token }),
-            reset: () =>   {
-                set({...initialState});
-
-            }
+            setPubKey: pubKey => set({ pubKey }),
+            setProfile: profile => set({ profile }),
+            setIsLoggedIn: isLoggedIn => set({ isLoggedIn }),
+            setToken: token => set({ token }),
+            reset: () => {
+                set({ ...initialState });
+            },
         }),
         {
             name: "profile-storage",
             storage: createJSONStorage(() => sessionStorage),
-        }
-    )
+        },
+    ),
 );
 
 export default useProfileStore;
