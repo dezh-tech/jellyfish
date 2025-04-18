@@ -13,11 +13,19 @@ type State = {
     token?: string;
 };
 
+const initState: State = {
+    pubKey: undefined,
+    isLoggedIn: undefined,
+    profile: undefined,
+    token: undefined,
+};
+
 type Actions = {
     setPubKey: (pubKey?: string) => void;
     setProfile: (picture?: TProfile) => void;
     setIsLoggedIn: (isLoggedIn?: boolean) => void;
     setToken: (token?: string) => void;
+    reset: () => void;
 };
 
 type Store = State & Actions;
@@ -29,6 +37,7 @@ const useProfileStore = create(
             setProfile: (profile?: TProfile) => set({ profile }),
             setIsLoggedIn: (isLoggedIn?: boolean) => set({ isLoggedIn }),
             setToken: (token?: string) => set({ token }),
+            reset: () => set(initState),
         }),
         {
             name: "profile-storage",
