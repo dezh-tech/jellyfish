@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/Button";
 import React, { useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { useLogin, useActiveUser } from "nostr-hooks";
+import { useLogin, useActiveUser
+
+
+
+ } from "nostr-hooks";
 import useProfileStore from "@/stores/profile-store";
 import { useQuery } from "@tanstack/react-query";
 
@@ -24,6 +28,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
     const { loginWithExtension } = useLogin();
     const { activeUser } = useActiveUser();
     const { getToken } = useNip98();
+
 
     // Get and Set pubKey from profile store
     const { pubKey, profile, setToken, setPubKey, setProfile, setIsLoggedIn } =
@@ -59,6 +64,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
     const setProfileToStore = (data: TProfileGetOutput | undefined) => {
         try {
             if (
+                pubKey && 
                 data &&
                 data?.events[0] &&
                 data?.events[0].kind === 0 &&
@@ -109,6 +115,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
                 .catch(err => {
                     console.error("Error get token: ", err);
                 });
+
         }
     }, [activeUser]);
 

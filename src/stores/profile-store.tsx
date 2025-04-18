@@ -13,16 +13,16 @@ type State = {
     token?: string;
 };
 
-const initState: State = {
+const initialState: State = {
+    profile: undefined,
     pubKey: undefined,
     isLoggedIn: undefined,
-    profile: undefined,
     token: undefined,
 };
 
 type Actions = {
     setPubKey: (pubKey?: string) => void;
-    setProfile: (picture?: TProfile) => void;
+    setProfile: (profile?: TProfile) => void;
     setIsLoggedIn: (isLoggedIn?: boolean) => void;
     setToken: (token?: string) => void;
     reset: () => void;
@@ -32,18 +32,22 @@ type Store = State & Actions;
 
 const useProfileStore = create(
     persist<Store>(
-        set => ({
-            setPubKey: (pubKey?: string) => set({ pubKey }),
-            setProfile: (profile?: TProfile) => set({ profile }),
-            setIsLoggedIn: (isLoggedIn?: boolean) => set({ isLoggedIn }),
-            setToken: (token?: string) => set({ token }),
-            reset: () => set({ ...initState }),
+        (set) => ({
+            ...initialState,
+            setPubKey: (pubKey) => set({ pubKey }),
+            setProfile: (profile) => set({ profile }),
+            setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
+            setToken: (token) => set({ token }),
+            reset: () =>   {
+                set({...initialState});
+
+            }
         }),
         {
             name: "profile-storage",
             storage: createJSONStorage(() => sessionStorage),
-        },
-    ),
+        }
+    )
 );
 
 export default useProfileStore;
