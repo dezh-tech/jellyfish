@@ -133,7 +133,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
                         <AvatarImage
                             src={
                                 profile?.picture ??
-                                "/images/avatar-paceholder.png"
+                                "/images/avatar-paceholder2.png"
                             }
                             alt="User Avatar"
                         />
@@ -153,7 +153,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
                             <AvatarImage
                                 src={
                                     profile?.picture ??
-                                    "/images/avatar-paceholder.png"
+                                    "/images/avatar-paceholder2.png"
                                 }
                                 alt="User Avatar"
                             />
