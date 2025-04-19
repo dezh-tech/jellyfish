@@ -59,6 +59,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
     const setProfileToStore = (data: TProfileGetOutput | undefined) => {
         try {
             if (
+                pubKey &&
                 data &&
                 data?.events[0] &&
                 data?.events[0].kind === 0 &&
@@ -133,7 +134,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
                         <AvatarImage
                             src={
                                 profile?.picture ??
-                                "/images/avatar-paceholder.png"
+                                "/images/avatar-paceholder2.png"
                             }
                             alt="User Avatar"
                         />
@@ -153,7 +154,7 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
                             <AvatarImage
                                 src={
                                     profile?.picture ??
-                                    "/images/avatar-paceholder.png"
+                                    "/images/avatar-paceholder2.png"
                                 }
                                 alt="User Avatar"
                             />
