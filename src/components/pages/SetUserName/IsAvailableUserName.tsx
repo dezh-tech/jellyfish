@@ -10,7 +10,7 @@ const IsAvailableUserName = ({
     isUsernameAvailable: boolean;
 }) => {
     return (
-        <div className="flex flex-col items-center gap-[30px] mt-[153px]">
+        <div className="flex flex-col items-center  ">
             <div>
                 {status && (
                     <Alert variant={isUsernameAvailable ? "success" : "error"}>

@@ -13,9 +13,9 @@ export const LightingIcon = ({ ...props }: IconProps) => {
             <path
                 d="M11.5 1.5L2.5 12.3H10.6L9.7 19.5L18.7 8.7H10.6L11.5 1.5Z"
                 stroke="#EAB308"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
         </svg>
     );

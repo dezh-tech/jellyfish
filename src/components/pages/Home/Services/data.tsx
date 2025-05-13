@@ -22,5 +22,7 @@ export const servicesData: ServicesCardProps[] = [
         description:
             "Let your friends to find you by your name on chaotic nostr ecosystem easily. Pay once keep it forever.",
         icon: <NipIcon className="flex-shrink-0" />,
+        isItPublished: true,
+        href: "/nip05",
     },
 ];

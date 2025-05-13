@@ -13,16 +13,16 @@ export const OpenLinkIcon = ({ ...props }: IconProps) => {
             <path
                 d="M7 7.08154H17V17.0815"
                 stroke="url(#paint0_linear_2_400)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M7 17.0815L17 7.08154"
                 stroke="url(#paint1_linear_2_400)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             />
             <defs>
                 <linearGradient
@@ -33,8 +33,8 @@ export const OpenLinkIcon = ({ ...props }: IconProps) => {
                     y2="12.979"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#ACCDF2" />
-                    <stop offset="1" stop-color="#D4E9F7" />
+                    <stop stopColor="#ACCDF2" />
+                    <stop offset="1" stopColor="#D4E9F7" />
                 </linearGradient>
                 <linearGradient
                     id="paint1_linear_2_400"
@@ -44,8 +44,8 @@ export const OpenLinkIcon = ({ ...props }: IconProps) => {
                     y2="12.979"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#ACCDF2" />
-                    <stop offset="1" stop-color="#D4E9F7" />
+                    <stop stopColor="#ACCDF2" />
+                    <stop offset="1" stopColor="#D4E9F7" />
                 </linearGradient>
             </defs>
         </svg>

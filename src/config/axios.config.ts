@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.noster.com";
+const BASE_URL = "https://nostr.eco/seasnail/";
 
 export const mainApi = axios.create({
     baseURL: BASE_URL,

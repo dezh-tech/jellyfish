@@ -1,16 +1,30 @@
 import { mainApi } from "../../config/axios.config";
-import { ApiResponse } from "../../types/api.types";
 
 export interface UsernameCheckResponse {
-    status: number | string;
+    fullIdentifier: string;
+    price: number;
+    // status: number | string;
 }
+// export interface CheckOutResponse {
+//     fullIdentifier: string;
+//     price: number;
+//     // status: number | string;
+// }
 
 export const usernameService = {
-    checkAvailability: (username: string) =>
-        mainApi.post<ApiResponse<UsernameCheckResponse>>(
-            `/username/check`,
-            username,
+    checkAvailability: (username: string, domainId: string) =>
+        mainApi.get<UsernameCheckResponse>(
+            `identifiers?name=${username}&domainId=${domainId}`,
         ),
-    getSuggestions: () =>
-        mainApi.get<ApiResponse<string[]>>("/username/suggestions"),
+    checkout: (
+        username: string | null,
+        domainId: string | null,
+        npub: string,
+    ) =>
+        mainApi.get<any>(
+            `identifiers/checkout-session?name=${username}&domainId=${domainId}&npub=${npub}`,
+        ),
+
+    // getSuggestions: () =>
+    //     mainApi.get<ApiResponse<string[]>>("/username/suggestions"),
 };

@@ -23,8 +23,8 @@ export const NipIcon = ({ ...props }: IconProps) => {
                     y2="0.5"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#D8ECF8" />
-                    <stop offset="1" stop-color="#98C0EF" />
+                    <stop stopColor="#D8ECF8" />
+                    <stop offset="1" stopColor="#98C0EF" />
                 </linearGradient>
             </defs>
         </svg>
