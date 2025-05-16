@@ -20,7 +20,7 @@ export const servicesData: ServicesCardProps[] = [
         isItPublished: true,
         href: "/relay",
         dashboardHref: "/dashboard/relay",
-        dashDescription: "Check your relay subscription information"
+        dashDescription: "Check your relay subscription information",
     },
     {
         title: "NIP-05",
@@ -30,6 +30,6 @@ export const servicesData: ServicesCardProps[] = [
         isItPublished: true,
         dashboardHref: "/dashboard/nip05",
         href: "/nip05",
-        dashDescription: "Manage your NIP-05 address"
+        dashDescription: "Manage your NIP-05 address",
     },
 ];

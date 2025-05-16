@@ -9,16 +9,16 @@ import useProfileStore from "@/stores/profile-store";
 import { useQuery } from "@tanstack/react-query";
 
 import { useNip98 } from "nostr-hooks";
-import { SimplePool } from 'nostr-tools';
+import { SimplePool } from "nostr-tools";
 import { useNavigate } from "react-router-dom";
 
 const RELAYS = [
-    'wss://nos.lol',
-    'wss://relay.nostr.band',
-    'wss://purplepag.es',
-    'wss://jellyfish.land',
-    'wss://ditto.pub/relay',
-    'wss://relay.primal.net'
+    "wss://nos.lol",
+    "wss://relay.nostr.band",
+    "wss://purplepag.es",
+    "wss://jellyfish.land",
+    "wss://ditto.pub/relay",
+    "wss://relay.primal.net",
 ];
 
 type Props = {
@@ -41,23 +41,21 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
 
     // Get Profile Api
     const getProfileQuery = useQuery<TProfileGetOutput>({
-        queryKey: ['profile', pubKey],
+        queryKey: ["profile", pubKey],
         queryFn: async () => {
             if (!pubKey) return { events: [] };
 
             const pool = new SimplePool();
             try {
-                const events = await pool.querySync(RELAYS,
-                    {
-                        kinds: [0],
-                        authors: [pubKey],
-                        limit: 1,
-                    },
-                );
+                const events = await pool.querySync(RELAYS, {
+                    kinds: [0],
+                    authors: [pubKey],
+                    limit: 1,
+                });
 
                 return { events };
             } catch (error) {
-                console.error('Error fetching profile:', error);
+                console.error("Error fetching profile:", error);
                 return { events: [] };
             } finally {
                 pool.close(RELAYS);
@@ -65,7 +63,6 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
         },
         enabled: !!pubKey,
     });
-
 
     const setProfileToStore = (data: TProfileGetOutput | undefined) => {
         try {
