@@ -36,7 +36,6 @@ const CheckAvailabilityForm = () => {
         },
     });
     console.log(data, "data");
-    console.log(domainId, "domainid");
 
     return (
         <form
