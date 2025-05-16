@@ -1,36 +1,105 @@
 import { Button } from "@/components/ui/Button";
+import TagsInput from "@/components/ui/TagsInput";
 import { Textfield } from "@/components/ui/Textfield";
-import useFetch from "@/hooks/useFetch";
-import { dashboardService } from "@/services/api/dashboard.service";
-import { useParams } from "react-router-dom";
-import useEdit from "./useEdit";
-import { useCallback, useEffect } from "react";
-import { MyNpubsCardProps } from "../MyNpubsCard";
-
-const sampleData: MyNpubsCardProps = {
-    username: "Ehsan@nosrt.eco",
-    npub: "npub1h5h535j4809uf23j8y9t4n23090",
-    id: "1",
-};
+import { nip05Service } from "@/services/api/nip05.service";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NpubEditForm = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [identifier, setIdentifier] = useState<any>(null);
+    const [formValues, setFormValues] = useState({
+        npub: "",
+        lightning: "",
+        relays: [] as string[],
+    });
 
-    const fetchUsernames = useCallback(() => {
-        return dashboardService
-            .getMyUsername(id as string)
-            .then(res => res.data.data);
-    }, []);
-    const { data, loading } = useFetch(fetchUsernames);
+    // Function to handle Textfield changes
+    const handleTextChange = (type: string, value: string) => {
+        setFormValues(prev => ({
+            ...prev,
+            [type.toLowerCase()]: value,
+        }));
+    };
 
-    const { handleSubmit, register, errors, setValue } = useEdit();
+    // Function to handle TagsInput changes
+    const handleRelaysChange = (value: string[]) => {
+        setFormValues(prev => ({
+            ...prev,
+            relays: value,
+        }));
+    };
+
+    // Fetch the records for the identifier
     useEffect(() => {
-        if (data) {
-            setValue("npub", data?.npub);
-        }
-    }, []);
+        const fetchData = async () => {
+            if (!id) return;
 
-    if (loading) return "Loading...";
+            try {
+                setLoading(true);
+                // Get the identifier details first
+                const identifiers = await nip05Service.getMyIdentifiers();
+                const currentIdentifier = identifiers.find(
+                    item => item.id === id,
+                );
+                setIdentifier(currentIdentifier);
+
+                // Then get all records for this identifier
+                const recordsData =
+                    await nip05Service.getRecordsForIdentifier(id);
+
+                // Initialize form values from records
+                const initialValues = {
+                    npub: "",
+                    lightning: "",
+                    relays: [] as string[],
+                };
+
+                recordsData.forEach(record => {
+                    if (record.type === "NAMES" || record.type === "NPUB") {
+                        initialValues.npub = record.value as string;
+                    } else if (record.type === "LIGHTNING") {
+                        initialValues.lightning = record.value as string;
+                    } else if (record.type === "RELAYS") {
+                        initialValues.relays = Array.isArray(record.value)
+                            ? (record.value as string[])
+                            : [];
+                    }
+                });
+
+                setFormValues(initialValues);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [id]);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (!id) return;
+
+        try {
+            setLoading(true);
+            await nip05Service.updateRecordsForIdentifier(id, formValues);
+            navigate("/dashboard/nip05");
+            // window.location.href = "/dashboard"; // Navigate to dashboard after success
+        } catch (error) {
+            console.error("Error updating records:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (loading) {
+        return <div className="pt-16 text-center">Loading...</div>;
+    }
 
     return (
         <form
@@ -43,24 +112,49 @@ const NpubEditForm = () => {
                         Edit your Nip-05 records
                     </p>
                     <h3 className="gradient-text text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold">
-                        {sampleData?.username}
+                        {identifier?.fullIdentifier}
                     </h3>
                 </div>
                 <Button
+                    variant="secondary"
                     className="min-w-[112px] sm:min-w-[130px] md:min-w-[145px] lg:min-w-[153px]"
                     type="submit"
+                    disabled={loading}
                 >
                     Save Changes
                 </Button>
             </header>
+
             <main className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-12">
+                {/* NPUB Field */}
                 <div className="space-y-1 sm:space-y-2">
-                    <Textfield {...register("npub")} label="NPUB:" />
-                    {errors.npub && (
-                        <p className="text-xs text-red-600 sm:text-sm md:text-base lg:text-sm font-roboto-mono animate-fade-right">
-                            {errors.npub.message}
-                        </p>
-                    )}
+                    <Textfield
+                        label="NPUB:"
+                        value={formValues.npub}
+                        onChange={e => handleTextChange("npub", e.target.value)}
+                    />
+                </div>
+
+                {/* Lightning Field */}
+                <div className="space-y-1 sm:space-y-2">
+                    <Textfield
+                        label="LIGHTNING:"
+                        value={formValues.lightning}
+                        onChange={e =>
+                            handleTextChange("lightning", e.target.value)
+                        }
+                    />
+                </div>
+
+                {/* Relays Field - using TagsInput */}
+                <div className="space-y-1 sm:space-y-2">
+                    <TagsInput
+                        className="h-14"
+                        label="RELAYS:"
+                        value={formValues.relays}
+                        onValueChange={handleRelaysChange}
+                        placeholder="Add relay URL and press Enter"
+                    />
                 </div>
             </main>
         </form>

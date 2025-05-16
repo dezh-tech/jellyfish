@@ -54,7 +54,7 @@ const CheckAvailabilityForm = () => {
                     {/* <p className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold gradient-text">
                         @nosrt.eco
                     </p> */}
-
+                    @
                     <Controller
                         name="domainId"
                         control={control}
@@ -74,7 +74,7 @@ const CheckAvailabilityForm = () => {
                                                 key={item.id}
                                                 value={item.id}
                                             >
-                                                @{item.domain}
+                                                {item.domain}
                                             </SelectItem>
                                         ) : null,
                                     )}

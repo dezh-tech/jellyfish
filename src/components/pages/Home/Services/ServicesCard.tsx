@@ -6,6 +6,7 @@ const ServicesCard = ({
     description,
     icon,
     isItPublished,
+    isItDashboard,
 }: ServicesCardProps) => {
     return (
         <div className="w-full max-h-[284px] h-[284px] relative text-center rounded-[22px] p-[1px] bg-gradient-to-tl from-[#A0C5F7] to-[#111628]/[0.62]">
@@ -35,7 +36,7 @@ const ServicesCard = ({
                 {/* -- Summary -- */}
                 <div className="flex items-center justify-center flex-shrink-0 row-span-1">
                     <p className=" text-[#80899F] text-center text-lg font-roboto-mono font-normal text-[18px] leading-[21px] tracking-[-0.04em] ">
-                        {description}
+                        {isItDashboard ? "" : description}
                     </p>
                 </div>
             </div>

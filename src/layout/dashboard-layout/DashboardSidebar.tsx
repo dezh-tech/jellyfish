@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/Button";
-import SidebarItem from "./SidebarItem";
-import { ChevronLeft, ChevronRight, HomeIcon, LogOutIcon } from "lucide-react";
 import { JellyFishIcon } from "@/assets/icons/nav/JellyFishIcon";
-import { Link } from "react-router-dom";
-import { useDashboardSidebar } from "./DashboardSidebarContext";
-import AuthenticationAction from "./../layout/AuthenticationActions";
+import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/providers/AuthProvider";
+import { ChevronLeft, ChevronRight, HomeIcon, LogOutIcon } from "lucide-react";
+import { Link } from "react-router-dom";
+import AuthenticationAction from "./../layout/AuthenticationActions";
+import { useDashboardSidebar } from "./DashboardSidebarContext";
+import SidebarItem from "./SidebarItem";
 
 const DashboardSidebar = () => {
     const { isCollapsed, toggleCollapse } = useDashboardSidebar();
@@ -50,6 +50,32 @@ const DashboardSidebar = () => {
                         <SidebarItem
                             icon={<HomeIcon className="w-5 h-5 " />}
                             label="Home"
+                            isCollapsed={isCollapsed}
+                        />
+                    </Link>
+                    <Link to={"/dashboard/relay"}>
+                        <SidebarItem
+                            icon={
+                                <img
+                                    className="w-5 h-5"
+                                    src="/svg/relay.svg"
+                                    alt="relay"
+                                />
+                            }
+                            label="Relay"
+                            isCollapsed={isCollapsed}
+                        />
+                    </Link>
+                    <Link to={"/dashboard/nip05"}>
+                        <SidebarItem
+                            icon={
+                                <img
+                                    className="w-5 h-5"
+                                    src="/svg/Shaka.svg"
+                                    alt="nip05"
+                                />
+                            }
+                            label="Nip05"
                             isCollapsed={isCollapsed}
                         />
                     </Link>

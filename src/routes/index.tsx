@@ -5,6 +5,8 @@ import { HomePage, NotFoundPage } from "@/components/pages";
 import AvailabilityPage from "@/components/pages/Availability";
 import Dashboard from "@/components/pages/Dashboard";
 import NpubEditForm from "@/components/pages/Dashboard/Edit";
+import Niplist from "@/components/pages/Dashboard/Nip05List";
+import Relaylist from "@/components/pages/Dashboard/RelayList";
 import Maintanance from "@/components/pages/Maintanance";
 import PaymentResult from "@/components/pages/PaymentResult";
 import SellRelay from "@/components/pages/SellRelay";
@@ -57,6 +59,14 @@ export const router = createBrowserRouter([
                     {
                         path: "edit/:id",
                         element: <NpubEditForm />,
+                    },
+                    {
+                        path: "relay",
+                        element: <Relaylist />,
+                    },
+                    {
+                        path: "nip05",
+                        element: <Niplist />,
                     },
                 ],
             },

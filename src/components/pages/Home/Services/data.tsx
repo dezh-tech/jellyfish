@@ -6,6 +6,8 @@ export type ServicesCardProps = {
     icon: ReactNode;
     isItPublished?: boolean;
     href?: string;
+    dashboardHref?: string;
+    isItDashboard?: boolean;
 } & TitleDescriptionT;
 
 export const servicesData: ServicesCardProps[] = [
@@ -16,6 +18,7 @@ export const servicesData: ServicesCardProps[] = [
         icon: <img src="/svg/relay.svg" alt="relay" />,
         isItPublished: true,
         href: "/relay",
+        dashboardHref: "/dashboard/relay",
     },
     {
         title: "NIP-05 Service",
@@ -23,6 +26,7 @@ export const servicesData: ServicesCardProps[] = [
             "Let your friends to find you by your name on chaotic nostr ecosystem easily. Pay once keep it forever.",
         icon: <NipIcon className="flex-shrink-0" />,
         isItPublished: true,
+        dashboardHref: "/dashboard/nip05",
         href: "/nip05",
     },
 ];
