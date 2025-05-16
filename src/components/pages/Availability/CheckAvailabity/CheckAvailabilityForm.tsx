@@ -96,7 +96,7 @@ const CheckAvailabilityForm = () => {
                 )}
             </div>
             <div>
-                By clicking on submit you are agree with our{" "}
+                By clicking submit, you agree to our{" "}
                 <a
                     target="_blank"
                     referrerPolicy="no-referrer"
