@@ -8,6 +8,8 @@ import { arrayRange, secondsToMonths } from "@/utils/functions";
 import { LightingIcon } from "@/assets/icons/nav/LightingIcon";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Controller } from "react-hook-form";
+import useProfileStore from "@/stores/profile-store";
+import { nip19 } from "nostr-tools";
 
 type TSubscriptionsGetOutput = {
     fees: { subscription: TSubscriptions[] };
@@ -42,6 +44,7 @@ const SellRelayForm = () => {
         },
     });
 
+    const { pubKey } = useProfileStore(state => state);
     return (
         <form
             onSubmit={handleSubmit}
@@ -50,6 +53,7 @@ const SellRelayForm = () => {
             <div className="space-y-2">
                 <div className="flex items-center gap-2 sm:gap-4 md:gap-6 lg:gap-4 animate-fade-up animate-delay-300">
                     <Textfield
+                        defaultValue={pubKey ? nip19.npubEncode(pubKey) : ""}
                         className="flex-1 w-full"
                         {...register("npub", { required: true })}
                         type="text"

@@ -22,7 +22,7 @@ type Domain = {
 };
 
 const CheckAvailabilityForm = () => {
-    const [domainId, setDomainId] = useState("");
+    const [,setDomainId] = useState("");
     const { handleSubmit, register, errors, control } = useCheckAvailability();
 
     const { data } = useQuery<Domain[]>({
@@ -35,7 +35,6 @@ const CheckAvailabilityForm = () => {
             }).then(res => res.json());
         },
     });
-    console.log(data, "data");
 
     return (
         <form
@@ -50,9 +49,6 @@ const CheckAvailabilityForm = () => {
                         type="text"
                         placeholder="username"
                     />
-                    {/* <p className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold gradient-text">
-                        @nosrt.eco
-                    </p> */}
                     @
                     <Controller
                         name="domainId"
