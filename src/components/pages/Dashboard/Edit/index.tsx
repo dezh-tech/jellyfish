@@ -1,36 +1,175 @@
 import { Button } from "@/components/ui/Button";
+import TagsInput from "@/components/ui/TagsInput";
 import { Textfield } from "@/components/ui/Textfield";
-import useFetch from "@/hooks/useFetch";
-import { dashboardService } from "@/services/api/dashboard.service";
-import { useParams } from "react-router-dom";
-import useEdit from "./useEdit";
-import { useCallback, useEffect } from "react";
-import { MyNpubsCardProps } from "../MyNpubsCard";
-
-const sampleData: MyNpubsCardProps = {
-    username: "Ehsan@nosrt.eco",
-    npub: "npub1h5h535j4809uf23j8y9t4n23090",
-    id: "1",
-};
+import { nip05Service } from "@/services/api/nip05.service";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { nip19 } from "nostr-tools";
 
 const NpubEditForm = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [identifier, setIdentifier] = useState<any>(null);
+    const [formValues, setFormValues] = useState({
+        npub: "", // will show npub encoded string
+        lightning: "",
+        relays: [] as string[],
+    });
 
-    const fetchUsernames = useCallback(() => {
-        return dashboardService
-            .getMyUsername(id as string)
-            .then(res => res.data.data);
-    }, []);
-    const { data, loading } = useFetch(fetchUsernames);
+    const [errors, setErrors] = useState({
+        npub: "",
+        lightning: "",
+        relays: "",
+    });
 
-    const { handleSubmit, register, errors, setValue } = useEdit();
-    useEffect(() => {
-        if (data) {
-            setValue("npub", data?.npub);
+    // Convert raw hex pubkey to npub string for display
+    const pubkeyHexToNpub = (pubkeyHex: string): string => {
+        try {
+            return nip19.npubEncode(pubkeyHex);
+        } catch {
+            return pubkeyHex; // fallback, just return raw if error
         }
-    }, []);
+    };
 
-    if (loading) return "Loading...";
+    // Convert npub string to raw hex pubkey for sending
+    const npubToPubkeyHex = (npub: string): string | null => {
+        try {
+            const decoded = nip19.decode(npub);
+            if (decoded.type === "npub" && typeof decoded.data === "string") {
+                return decoded.data;
+            }
+            return null;
+        } catch {
+            return null;
+        }
+    };
+
+    const handleTextChange = (type: string, value: string) => {
+        setFormValues(prev => ({
+            ...prev,
+            [type.toLowerCase()]: value,
+        }));
+    };
+
+    const handleRelaysChange = (value: string[]) => {
+        setFormValues(prev => ({
+            ...prev,
+            relays: value,
+        }));
+    };
+
+    const validateForm = () => {
+        let valid = true;
+        const newErrors = { npub: "", lightning: "", relays: "" };
+
+        // Validate npub format by decoding
+        if (!npubToPubkeyHex(formValues.npub)) {
+            newErrors.npub = "Invalid Nostr public key (npub).";
+            valid = false;
+        }
+
+        if (
+            formValues.lightning &&
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.lightning)
+        ) {
+            newErrors.lightning =
+                "Lightning address must be in the format user@domain.tld";
+            valid = false;
+        }
+
+        if (
+            formValues.relays.some(
+                url => !/^wss?:\/\/[^\s/$.?#].[^\s]*$/.test(url),
+            )
+        ) {
+            newErrors.relays = "One or more relay URLs are invalid.";
+            valid = false;
+        }
+
+        setErrors(newErrors);
+        return valid;
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            if (!id) return;
+
+            try {
+                setLoading(true);
+                const identifiers = await nip05Service.getMyIdentifiers();
+                const currentIdentifier = identifiers.find(
+                    item => item.id === id,
+                );
+                setIdentifier(currentIdentifier);
+
+                const recordsData =
+                    await nip05Service.getRecordsForIdentifier(id);
+
+                const initialValues = {
+                    npub: "",
+                    lightning: "",
+                    relays: [] as string[],
+                };
+
+                recordsData.forEach(record => {
+                    if (record.type === "NAMES" || record.type === "NPUB") {
+                        // convert raw hex to npub for display
+                        initialValues.npub = pubkeyHexToNpub(
+                            record.value as string,
+                        );
+                    } else if (record.type === "LIGHTNING") {
+                        initialValues.lightning = record.value as string;
+                    } else if (record.type === "RELAYS") {
+                        initialValues.relays = Array.isArray(record.value)
+                            ? (record.value as string[])
+                            : [];
+                    }
+                });
+
+                setFormValues(initialValues);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [id]);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!id) return;
+
+        if (!validateForm()) return;
+
+        // Convert npub back to raw hex before sending
+        const hexPubkey = npubToPubkeyHex(formValues.npub);
+        if (!hexPubkey) {
+            setErrors(prev => ({ ...prev, npub: "Invalid npub format" }));
+            return;
+        }
+
+        const payload = {
+            ...formValues,
+            npub: hexPubkey,
+        };
+
+        try {
+            setLoading(true);
+            await nip05Service.updateRecordsForIdentifier(id, payload);
+            navigate("/dashboard/nip05");
+        } catch (error) {
+            console.error("Error updating records:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (loading) {
+        return <div className="pt-16 text-center">Loading...</div>;
+    }
 
     return (
         <form
@@ -43,22 +182,59 @@ const NpubEditForm = () => {
                         Edit your Nip-05 records
                     </p>
                     <h3 className="gradient-text text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold">
-                        {sampleData?.username}
+                        {identifier?.fullIdentifier}
                     </h3>
                 </div>
                 <Button
+                    variant="secondary"
                     className="min-w-[112px] sm:min-w-[130px] md:min-w-[145px] lg:min-w-[153px]"
                     type="submit"
+                    disabled={loading}
                 >
                     Save Changes
                 </Button>
             </header>
+
             <main className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-12">
                 <div className="space-y-1 sm:space-y-2">
-                    <Textfield {...register("npub")} label="NPUB:" />
+                    <Textfield
+                        label="NPUB:"
+                        value={formValues.npub}
+                        onChange={e => handleTextChange("npub", e.target.value)}
+                    />
                     {errors.npub && (
-                        <p className="text-xs text-red-600 sm:text-sm md:text-base lg:text-sm font-roboto-mono animate-fade-right">
-                            {errors.npub.message}
+                        <p className="text-sm text-red-500 mt-1">
+                            {errors.npub}
+                        </p>
+                    )}
+                </div>
+
+                <div className="space-y-1 sm:space-y-2">
+                    <Textfield
+                        label="LIGHTNING:"
+                        value={formValues.lightning}
+                        onChange={e =>
+                            handleTextChange("lightning", e.target.value)
+                        }
+                    />
+                    {errors.lightning && (
+                        <p className="text-sm text-red-500 mt-1">
+                            {errors.lightning}
+                        </p>
+                    )}
+                </div>
+
+                <div className="space-y-1 sm:space-y-2">
+                    <TagsInput
+                        className="h-14"
+                        label="RELAYS:"
+                        value={formValues.relays}
+                        onValueChange={handleRelaysChange}
+                        placeholder="Add relay URL and press Enter"
+                    />
+                    {errors.relays && (
+                        <p className="text-sm text-red-500 mt-1">
+                            {errors.relays}
                         </p>
                     )}
                 </div>

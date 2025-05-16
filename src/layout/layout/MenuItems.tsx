@@ -9,7 +9,15 @@ const MenuItems = () => {
                     <img src="/svg/relay.svg" alt="relay" />
                 </div>
                 <div className="text-lg font-medium gradient-text font-roboto-mono">
-                    Relay Service
+                    Relay
+                </div>
+            </Link>
+            <Link to="/nip05" className="flex items-center gap-2">
+                <div className="flex-shrink-0">
+                    <img src="/svg/Shaka.svg" alt="nip05" />
+                </div>
+                <div className="text-lg font-medium gradient-text font-roboto-mono">
+                    NIP-05
                 </div>
             </Link>
             <Link

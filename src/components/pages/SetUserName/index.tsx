@@ -1,15 +1,17 @@
-import { useSearchParams } from "react-router-dom";
-import IsAvailableUserName from "./IsAvailableUserName";
-import SetUserNameForm from "./SetUserNameForm";
-import CheckAvailabilityForm from "../Availability/CheckAvailabity/CheckAvailabilityForm";
 import { UsernameStatus } from "@/enums/usernameStatus";
 import { cn } from "@/lib/utils";
-import NameSuggestions from "./NameSuggestions";
+import { useSearchParams } from "react-router-dom";
+import CheckAvailabilityForm from "../Availability/CheckAvailabity/CheckAvailabilityForm";
+import IsAvailableUserName from "./IsAvailableUserName";
+import SetUserNameForm from "./SetUserNameForm";
+// import NameSuggestions from "./NameSuggestions";
 
 const SetUserName = () => {
     const [searchParams] = useSearchParams();
     const username = searchParams.get("username");
     const status = searchParams.get("status");
+    const domainId = searchParams.get("domainId");
+    const price = searchParams.get("price");
     const isUsernameAvailable = Number(status) === UsernameStatus.AVAILABLE;
 
     return (
@@ -32,23 +34,26 @@ const SetUserName = () => {
             <div className="max-w-full sm:max-w-md md:max-w-lg lg:max-w-[645px] mx-auto space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-6">
                 {isUsernameAvailable ? (
                     <>
-                        <SetUserNameForm />
+                        <SetUserNameForm
+                            username={username}
+                            domainId={domainId}
+                        />
                         <div>
                             <p className="text-sm sm:text-base md:text-lg lg:text-sm font-roboto-mono text-[#80899F]">
                                 Lifetime payment for{" "}
                                 <span className="text-base font-light sm:text-lg md:text-xl lg:text-base font-bankGothic">
                                     {username}
                                 </span>{" "}
-                                5000 sats
+                                is {price} sats
                             </p>
                         </div>
                     </>
                 ) : (
                     <>
-                        <NameSuggestions />
+                        {/* <NameSuggestions /> */}
                         <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-6">
                             <h4 className="text-base font-bold sm:text-lg md:text-xl lg:text-xl gradient-text">
-                                OR Type another name:
+                                Type another name:
                             </h4>
                             <CheckAvailabilityForm />
                         </div>

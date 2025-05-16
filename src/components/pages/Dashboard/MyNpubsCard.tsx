@@ -6,11 +6,43 @@ import { Link } from "react-router-dom";
 export type MyNpubsCardProps = {
     id: string;
     username: string;
-    npub: string;
+    items: Records[];
     // items: { name: string; value: string }[];
 };
+type Records = {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    identifierId: string;
+    type: string;
+    key: string;
+    value: string | [];
+    priority: number;
+    ttl: number;
+};
 
-const MyNpubsCard = ({ username, id, npub }: MyNpubsCardProps) => {
+const MyNpubsCard = ({ username, id, items }: MyNpubsCardProps) => {
+    // Function to render value based on its type
+    const renderValue = (value: string | []) => {
+        if (Array.isArray(value)) {
+            return value.length > 0 ? (
+                value.join(", ")
+            ) : (
+                <span className="font-roboto-mono text-[#F3F5FB] font-normal italic text-base leading-[19.51px] tracking-[-6%] align-middle">
+                    not set
+                </span>
+            );
+        }
+
+        return value ? (
+            value
+        ) : (
+            <span className="font-roboto-mono text-[#F3F5FB] font-normal italic text-base leading-[19.51px] tracking-[-6%] align-middle">
+                not set
+            </span>
+        );
+    };
+
     return (
         <div
             className="relative rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-[22px]"
@@ -34,7 +66,7 @@ const MyNpubsCard = ({ username, id, npub }: MyNpubsCardProps) => {
                     <Link
                         to={`/dashboard/edit/${id}`}
                         className={cn(
-                            buttonVariants(),
+                            buttonVariants({ variant: "secondary" }),
                             "hidden md:flex min-w-[80px] sm:min-w-[96px] md:min-w-[104px] lg:min-w-[112px] h-10 sm:h-11 md:h-12 lg:h-12",
                         )}
                     >
@@ -42,34 +74,38 @@ const MyNpubsCard = ({ username, id, npub }: MyNpubsCardProps) => {
                     </Link>
                 </header>
 
-                <main className="grid flex-grow flex-shrink-0 w-full grid-cols-2">
-                    <div className="flex items-center flex-grow w-full col-span-2 gap-1">
-                        <Tag>npub</Tag>
+                <main className="  grid flex-grow flex-shrink-0 w-full grid-cols-2 gap-2">
+                    {/* <div className="flex items-center flex-grow w-full col-span-2 gap-1"> */}
+                    {items?.map(item => (
+                        <div
+                            className=" w-full flex items-center flex-grow col-span-1 gap-2"
+                            key={item.id}
+                        >
+                            <Tag>{item?.type?.toLowerCase()}</Tag>
+                            <p
+                                className="flex-grow text-sm font-medium text-white break-all font-roboto-mono sm:text-base md:text-lg lg:text-xl text-wrap"
+                                // title={item.value}
+                            >
+                                {renderValue(item.value)}
+                            </p>
+                        </div>
+                    ))}
+                    {/* <Tag>npub</Tag>
 
                         <p
                             className="flex-grow text-sm font-medium text-white break-all font-roboto-mono sm:text-base md:text-lg lg:text-xl text-wrap"
                             title={npub}
                         >
                             {npub}
-                        </p>
-                    </div>
-                    {/* {items.map((item, key) => (
-                        <div
-                            className="flex items-center gap-1"
-                            key={key + item.value}
-                        >
-                            <Tag>{item.name}</Tag>
-                            <p className="text-sm font-medium text-white font-roboto-mono sm:text-base md:text-lg lg:text-xl">
-                                {item.value}
-                            </p>
-                        </div>
-                    ))} */}
+                        </p> */}
+                    {/* </div> */}
                 </main>
 
                 <Link
                     to={`/dashboard/edit/${id}`}
                     className={cn(
-                        buttonVariants(),
+                        buttonVariants({ variant: "secondary" }),
+
                         "md:hidden w-full h-10 sm:h-11 md:h-12 lg:h-12",
                     )}
                 >

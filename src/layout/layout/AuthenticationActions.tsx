@@ -9,7 +9,17 @@ import useProfileStore from "@/stores/profile-store";
 import { useQuery } from "@tanstack/react-query";
 
 import { useNip98 } from "nostr-hooks";
+import { SimplePool } from "nostr-tools";
 import { useNavigate } from "react-router-dom";
+
+const RELAYS = [
+    "wss://nos.lol",
+    "wss://relay.nostr.band",
+    "wss://purplepag.es",
+    "wss://jellyfish.land",
+    "wss://ditto.pub/relay",
+    "wss://relay.primal.net",
+];
 
 type Props = {
     isCollapsed?: boolean;
@@ -31,29 +41,27 @@ const AuthenticationButton: React.FC<Props> = ({ isCollapsed }) => {
 
     // Get Profile Api
     const getProfileQuery = useQuery<TProfileGetOutput>({
-        queryKey: ["profile"],
-        queryFn: () => {
-            const relay = import.meta.env.VITE_JELLYFISH_RELAY;
-            const filters = [
-                {
+        queryKey: ["profile", pubKey],
+        queryFn: async () => {
+            if (!pubKey) return { events: [] };
+
+            const pool = new SimplePool();
+            try {
+                const events = await pool.querySync(RELAYS, {
                     kinds: [0],
-                    limit: 1,
                     authors: [pubKey],
-                },
-            ];
+                    limit: 1,
+                });
 
-            // Convert filters to a JSON string and encode it
-            const encodedFilters = encodeURIComponent(JSON.stringify(filters));
-
-            const url = `${import.meta.env.VITE_PROFILE_API_BASE_URL}?relay=${encodeURIComponent(relay)}&filters=${encodedFilters}`;
-
-            return fetch(url, {
-                // headers: {
-                //     Accept: "application/json",
-                // },
-            }).then(res => res.json());
+                return { events };
+            } catch (error) {
+                console.error("Error fetching profile:", error);
+                return { events: [] };
+            } finally {
+                pool.close(RELAYS);
+            }
         },
-        enabled: false,
+        enabled: !!pubKey,
     });
 
     const setProfileToStore = (data: TProfileGetOutput | undefined) => {

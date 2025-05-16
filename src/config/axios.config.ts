@@ -1,6 +1,7 @@
+import useProfileStore from "@/stores/profile-store";
 import axios from "axios";
 
-const BASE_URL = "https://api.noster.com";
+const BASE_URL = "https://nostr.eco/seasnail/";
 
 export const mainApi = axios.create({
     baseURL: BASE_URL,
@@ -12,9 +13,10 @@ export const mainApi = axios.create({
 
 // Request interceptor
 const requestInterceptor = (config: any) => {
-    const token = localStorage.getItem("token");
+    const token = useProfileStore.getState().token;
+
     if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        config.headers.Authorization = `${token}`;
     }
     return config;
 };
@@ -27,8 +29,8 @@ const responseInterceptor = (response: any) => {
 const errorInterceptor = (error: any) => {
     if (error.response?.status === 401) {
         // Handle unauthorized access
-        localStorage.removeItem("token");
-        window.location.href = "/login";
+        localStorage.removeItem("profile-storage");
+        window.location.href = "/";
     }
     return Promise.reject(error);
 };

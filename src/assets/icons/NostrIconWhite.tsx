@@ -23,8 +23,8 @@ export const NostrIconWhite = ({ ...props }: IconProps) => {
                 fill="url(#paint2_linear_269_7)"
             />
             <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M6.52554 23.9831C6.53349 23.6312 6.66463 22.523 7.78652 20.3045C8.28162 19.3378 9.40541 18.0018 10.2463 17.2788C10.6942 16.8859 11.1422 16.5558 11.5823 16.2494C11.8102 16.1158 12.0224 15.9743 12.2267 15.825C15.9077 13.5681 19.1572 14.0394 21.8529 14.4303L21.9322 14.4418C21.9322 14.4418 22.5766 12.5243 19.9204 11.5341C18.4744 10.9997 16.769 10.5675 15.3466 10.2689C15.1423 10.6382 14.8829 10.9526 14.5765 11.1883C14.5723 11.1915 14.5679 11.1947 14.5635 11.1981C14.3356 11.3694 13.7951 11.7755 12.8161 11.6599C12.3131 11.597 11.9281 11.3927 11.6216 11.094C11.1029 11.9506 10.3563 12.5086 9.49186 12.5872C7.09495 12.7915 5.88471 10.7797 5.80612 8.55566C4.00647 8.72856 1.55455 9.83664 0.25 10.4811L0.256746 22.0394C1.9213 22.6844 4.41834 23.4805 6.52554 23.9831Z"
                 fill="url(#paint3_linear_269_7)"
             />
@@ -37,8 +37,8 @@ export const NostrIconWhite = ({ ...props }: IconProps) => {
                     y2="0.272461"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#D8ECF8" />
-                    <stop offset="1" stop-color="#98C0EF" />
+                    <stop stopColor="#D8ECF8" />
+                    <stop offset="1" stopColor="#98C0EF" />
                 </linearGradient>
                 <linearGradient
                     id="paint1_linear_269_7"
@@ -48,8 +48,8 @@ export const NostrIconWhite = ({ ...props }: IconProps) => {
                     y2="5.29443"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#D8ECF8" />
-                    <stop offset="1" stop-color="#98C0EF" />
+                    <stop stopColor="#D8ECF8" />
+                    <stop offset="1" stopColor="#98C0EF" />
                 </linearGradient>
                 <linearGradient
                     id="paint2_linear_269_7"
@@ -59,8 +59,8 @@ export const NostrIconWhite = ({ ...props }: IconProps) => {
                     y2="5.80518"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#D8ECF8" />
-                    <stop offset="1" stop-color="#98C0EF" />
+                    <stop stopColor="#D8ECF8" />
+                    <stop offset="1" stopColor="#98C0EF" />
                 </linearGradient>
                 <linearGradient
                     id="paint3_linear_269_7"
@@ -70,8 +70,8 @@ export const NostrIconWhite = ({ ...props }: IconProps) => {
                     y2="8.55566"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#D8ECF8" />
-                    <stop offset="1" stop-color="#98C0EF" />
+                    <stop stopColor="#D8ECF8" />
+                    <stop offset="1" stopColor="#98C0EF" />
                 </linearGradient>
             </defs>
         </svg>

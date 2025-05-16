@@ -23,8 +23,8 @@ export const NostrIconPink = ({ ...props }: IconProps) => {
                 fill="url(#paint2_linear_199_2840)"
             />
             <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M5.77063 20.4857C5.77723 20.1926 5.88644 19.2691 6.82145 17.4201C7.23403 16.6145 8.17053 15.5012 8.87127 14.8987C9.24455 14.5713 9.61784 14.2962 9.98458 14.0408C10.1745 13.9295 10.3513 13.8116 10.5216 13.6872C13.5891 11.8064 16.297 12.1992 18.5435 12.525L18.6095 12.5345C18.6095 12.5345 19.1465 10.9366 16.933 10.1114C15.728 9.66611 14.3069 9.30592 13.1215 9.05706C12.9513 9.36486 12.7351 9.62682 12.4797 9.82329C12.4762 9.82591 12.4726 9.82861 12.4689 9.83139C12.279 9.97414 11.8286 10.3126 11.0128 10.2162C10.5936 10.1638 10.2727 9.99356 10.0173 9.7447C9.5851 10.4585 8.96295 10.9235 8.24257 10.989C6.24514 11.1593 5.2366 9.48274 5.17111 7.62939C3.67141 7.77347 1.62814 8.69687 0.541016 9.23388L0.546638 18.866C1.93387 19.4035 4.01472 20.0669 5.77063 20.4857Z"
                 fill="url(#paint3_linear_199_2840)"
             />
@@ -37,8 +37,8 @@ export const NostrIconPink = ({ ...props }: IconProps) => {
                     y2="3.72646"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0.3" stop-color="#F869B6" />
-                    <stop offset="1" stop-color="#D34CD9" />
+                    <stop offset="0.3" stopColor="#F869B6" />
+                    <stop offset="1" stopColor="#D34CD9" />
                 </linearGradient>
                 <linearGradient
                     id="paint1_linear_199_2840"
@@ -48,8 +48,8 @@ export const NostrIconPink = ({ ...props }: IconProps) => {
                     y2="7.43345"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0.3" stop-color="#F869B6" />
-                    <stop offset="1" stop-color="#D34CD9" />
+                    <stop offset="0.3" stopColor="#F869B6" />
+                    <stop offset="1" stopColor="#D34CD9" />
                 </linearGradient>
                 <linearGradient
                     id="paint2_linear_199_2840"
@@ -59,8 +59,8 @@ export const NostrIconPink = ({ ...props }: IconProps) => {
                     y2="7.34187"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0.3" stop-color="#F869B6" />
-                    <stop offset="1" stop-color="#D34CD9" />
+                    <stop offset="0.3" stopColor="#F869B6" />
+                    <stop offset="1" stopColor="#D34CD9" />
                 </linearGradient>
                 <linearGradient
                     id="paint3_linear_199_2840"
@@ -70,8 +70,8 @@ export const NostrIconPink = ({ ...props }: IconProps) => {
                     y2="14.0575"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0.3" stop-color="#F869B6" />
-                    <stop offset="1" stop-color="#D34CD9" />
+                    <stop offset="0.3" stopColor="#F869B6" />
+                    <stop offset="1" stopColor="#D34CD9" />
                 </linearGradient>
             </defs>
         </svg>

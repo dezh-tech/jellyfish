@@ -1,16 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import RootLayout from "@/layout/layout";
+import { ProtectedRoute } from "@/components/common/ProtectedRoute";
 import { HomePage, NotFoundPage } from "@/components/pages";
 import AvailabilityPage from "@/components/pages/Availability";
-import SetUserName from "@/components/pages/SetUserName";
-import PaymentResult from "@/components/pages/PaymentResult";
 import Dashboard from "@/components/pages/Dashboard";
-import SellRelay from "@/components/pages/SellRelay";
 import NpubEditForm from "@/components/pages/Dashboard/Edit";
-import DashboardLayout from "@/layout/dashboard-layout";
+import Niplist from "@/components/pages/Dashboard/Nip05List";
+import Relaylist from "@/components/pages/Dashboard/RelayList";
 import Maintanance from "@/components/pages/Maintanance";
-import { ProtectedRoute } from "@/components/common/ProtectedRoute";
+import PaymentResult from "@/components/pages/PaymentResult";
+import SellRelay from "@/components/pages/SellRelay";
+import SetUserName from "@/components/pages/SetUserName";
+import DashboardLayout from "@/layout/dashboard-layout";
+import RootLayout from "@/layout/layout";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +59,14 @@ export const router = createBrowserRouter([
                     {
                         path: "edit/:id",
                         element: <NpubEditForm />,
+                    },
+                    {
+                        path: "relay",
+                        element: <Relaylist />,
+                    },
+                    {
+                        path: "nip05",
+                        element: <Niplist />,
                     },
                 ],
             },

@@ -1,33 +1,49 @@
+import { buttonVariants } from "@/components/ui/Button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 import useProfileStore from "@/stores/profile-store";
+import { getRemaningFormattedTime } from "@/utils/dayjs";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { servicesData } from "../Home/Services/data";
-import ServicesCard from "../Home/Services/ServicesCard";
 
-const Dashboard = () => {
-    const { profile, pubKey } = useProfileStore(state => state);
+const RelayList = () => {
+    const { token } = useProfileStore(state => state);
 
+    console.log(token, "token");
+
+    const [remaring, setRemaring] = useState<number>(0);
+
+    // Get Remaining Api
+    const getRemainingQuery = useQuery<number>({
+        queryKey: ["remaining"],
+        queryFn: () => {
+            const url =
+                import.meta.env.VITE_API_BASE_URL + "/subscriptions/remaining";
+
+            return fetch(url, {
+                headers: {
+                    Accept: "application/json",
+                    Authorization: token ?? "",
+                },
+            }).then(res => res.json());
+        },
+        enabled: false,
+    });
+
+    useEffect(() => {
+        getRemainingQuery.refetch();
+    }, [token]);
+
+    useEffect(() => {
+        if (getRemainingQuery.data) {
+            const remaining = getRemainingQuery.data;
+            setRemaring(remaining);
+        }
+    }, [getRemainingQuery.data]);
     return (
         <main className="space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-[107px] pt-16 sm:pt-20 md:pt-24 lg:pt-24">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] gradient-text uppercase">
-                Hi, welcome {profile?.display_name ?? pubKey?.substring(0, 6)}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 max-w-full w-[950px] mx-auto gap-4">
-                {servicesData.map((service, key) => (
-                    <Link
-                        key={key}
-                        to={service?.dashboardHref ?? "/dashboard"}
-                        className="col-span-1"
-                    >
-                        <ServicesCard
-                            isItDashboard={true}
-                            {...service}
-                            key={key}
-                        />
-                    </Link>
-                ))}
-            </div>
-
-            {/* <div
+            <div
                 className="relative rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-[22px]"
                 style={{
                     background:
@@ -66,32 +82,8 @@ const Dashboard = () => {
                         )}
                     </header>
                 </div>
-            </div> */}
-
-            {/* <section className="flex flex-col gap-6 min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] lg:min-h-[65dvh]">
-                {loading ? (
-                    <>
-                        <Skeleton className="w-full h-32 sm:h-36 md:h-40 lg:h-[150px] rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-[22px]" />
-                        <Skeleton className="w-full h-32 sm:h-36 md:h-40 lg:h-[150px] rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-[22px]" />
-                    </>
-                ) : data && data.length > 0 ? (
-                    data?.map((card, key) => (
-                        <AnimateWrapper key={key} delay={key * 0.2}>
-                            <MyNpubsCard {...card} />
-                        </AnimateWrapper>
-                    ))
-                ) : sampleData ? (
-                    sampleData?.map((card, key) => (
-                        <AnimateWrapper key={key} delay={key * 0.2}>
-                            <MyNpubsCard {...card} />
-                        </AnimateWrapper>
-                    ))
-                ) : (
-                    "Not any username"
-                )}
-            </section> */}
+            </div>
         </main>
     );
 };
-
-export default Dashboard;
+export default RelayList;
