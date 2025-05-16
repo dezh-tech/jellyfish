@@ -13,18 +13,27 @@ const schema = yup
         username: yup
             .string()
             .required("Username is required")
-            .min(3, "Username must be at least 3 characters")
+            .min(1, "Username must be at least 1 character")
             .matches(
                 /^[a-zA-Z0-9_-]+$/,
                 "Username can only contain letters, numbers, underscores, and hyphens",
             ),
-        domainId: yup.string().required("domain is required"),
+        domainId: yup.string().required("Domain is required"),
     })
     .required();
+
+    // services/api/domain.service.ts
+export const domainService = {
+    async getDomainById(id: string): Promise<{ id: string; value: string }> {
+        const res = await fetch(`/api/domains/${id}`);
+        return await res.json();
+    },
+};
 
 const useCheckAvailability = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+
     const {
         register,
         handleSubmit,
@@ -37,27 +46,33 @@ const useCheckAvailability = () => {
     const onSubmit = async (data: { username: string; domainId: string }) => {
         try {
             setLoading(true);
+
             const res = (await usernameService.checkAvailability(
                 data.username,
                 data.domainId,
             )) as unknown as UsernameCheckResponse;
-            console.log(res, "res");
 
-            // Access the data directly as it's already the right type
             const fullIdentifier = res?.fullIdentifier;
             const price = res?.price || 0;
 
             navigate(
-                `/set-username?username=${fullIdentifier}&domainId=${data.domainId}&price=${price}&status=${0}`,
+                `/set-username?username=${fullIdentifier}&domainId=${data.domainId}&price=${price}&status=0`,
             );
         } catch (error: any) {
             if (error.response?.data?.error === "Conflict") {
-                navigate(`/set-username?username=${data.username}&status=${1}`);
-            } else {
-                console.log(error, "sdasdasdasda");
-            }
+                try {
+                    // Get domain name from domain ID
+                    const domain = await domainService.getDomainById(data.domainId); // Should return { id, value }
+                    const domainName = domain?.value || data.domainId;
 
-            //  TODO : add toast
+                    const takenIdentifier = `${data.username}@${domainName}`;
+                    navigate(`/set-username?username=${takenIdentifier}&status=1`);
+                } catch (domainErr) {
+                    console.error("Failed to resolve domain name:", domainErr);
+                }
+            } else {
+                console.error("Unexpected error:", error);
+            }
         } finally {
             setLoading(false);
         }

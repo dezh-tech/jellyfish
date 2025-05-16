@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import AuthenticationAction from "./../layout/AuthenticationActions";
 import { useDashboardSidebar } from "./DashboardSidebarContext";
 import SidebarItem from "./SidebarItem";
+import { NipIcon } from "@/assets/icons";
 
 const DashboardSidebar = () => {
     const { isCollapsed, toggleCollapse } = useDashboardSidebar();
@@ -69,11 +70,7 @@ const DashboardSidebar = () => {
                     <Link to={"/dashboard/nip05"}>
                         <SidebarItem
                             icon={
-                                <img
-                                    className="w-5 h-5"
-                                    src="/svg/Shaka.svg"
-                                    alt="nip05"
-                                />
+                            <NipIcon className="flex-shrink-0" />
                             }
                             label="Nip05"
                             isCollapsed={isCollapsed}
