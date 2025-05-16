@@ -22,7 +22,7 @@ const schema = yup
     })
     .required();
 
-    // services/api/domain.service.ts
+// services/api/domain.service.ts
 export const domainService = {
     async getDomainById(id: string): Promise<{ id: string; value: string }> {
         const res = await fetch(`/api/domains/${id}`);
@@ -62,11 +62,15 @@ const useCheckAvailability = () => {
             if (error.response?.data?.error === "Conflict") {
                 try {
                     // Get domain name from domain ID
-                    const domain = await domainService.getDomainById(data.domainId); // Should return { id, value }
+                    const domain = await domainService.getDomainById(
+                        data.domainId,
+                    ); // Should return { id, value }
                     const domainName = domain?.value || data.domainId;
 
                     const takenIdentifier = `${data.username}@${domainName}`;
-                    navigate(`/set-username?username=${takenIdentifier}&status=1`);
+                    navigate(
+                        `/set-username?username=${takenIdentifier}&status=1`,
+                    );
                 } catch (domainErr) {
                     console.error("Failed to resolve domain name:", domainErr);
                 }

@@ -69,9 +69,7 @@ const DashboardSidebar = () => {
                     </Link>
                     <Link to={"/dashboard/nip05"}>
                         <SidebarItem
-                            icon={
-                            <NipIcon className="flex-shrink-0" />
-                            }
+                            icon={<NipIcon className="flex-shrink-0" />}
                             label="Nip05"
                             isCollapsed={isCollapsed}
                         />
