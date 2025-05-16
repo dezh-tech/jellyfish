@@ -18,7 +18,7 @@ const HeroSection = () => {
                     className="h-12 mt-4 rounded-full w-fit md:mt-6 lg:mt-8"
                     asChild
                 >
-                    <Link to="/relay">Join relay now!</Link>
+                    <Link to="/nip05">Get your @nostr.eco address now!</Link>
                 </Button>
             </div>
 

@@ -1,6 +1,6 @@
 # Jellyfish Terms of Services
 
-Last updated: 21 March 2025
+Last updated: 16 May 2025
 
 By accessing in any way or paying for the services, you agree to the following Terms of Service.
 
@@ -59,3 +59,20 @@ You agree that you are also fully aware that:
   and not other relays due the protocol design.
 - That we are not liable and have no involvement in the type, quality or
   legality of the content produced by the users of the relay.
+
+## NIP-05 Service Usage Terms
+
+By using this NIP-05 service in any way, you agree that:
+- You are solely responsible for checking for any updates to this ToS
+  regularly.
+- By continuing to use the service after a ToS change, you automatically
+  agree to the new ToS.
+- You will not disseminate any content in the following categories using
+  the services:
+  - CSAM
+  - Spam
+  - Impersonation
+  - Scamming
+- Any impersonation attempt can ban your pubkey and NIP-05 handle permanently.
+- The services provided to you may be shut down, change ownership or
+  otherwise altered at any time.

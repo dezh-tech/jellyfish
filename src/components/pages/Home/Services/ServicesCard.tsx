@@ -4,6 +4,7 @@ import { ServicesCardProps } from "./data";
 const ServicesCard = ({
     title,
     description,
+    dashDescription,
     icon,
     isItPublished,
     isItDashboard,
@@ -36,7 +37,7 @@ const ServicesCard = ({
                 {/* -- Summary -- */}
                 <div className="flex items-center justify-center flex-shrink-0 row-span-1">
                     <p className=" text-[#80899F] text-center text-lg font-roboto-mono font-normal text-[18px] leading-[21px] tracking-[-0.04em] ">
-                        {isItDashboard ? "" : description}
+                        {isItDashboard ? dashDescription : description}
                     </p>
                 </div>
             </div>

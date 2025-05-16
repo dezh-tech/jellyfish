@@ -46,7 +46,7 @@ const SelectTrigger = React.forwardRef<
         )}
         {...props}
     >
-        <SelectPrimitive.Value placeholder="Select a Domain">
+        <SelectPrimitive.Value placeholder="domain">
             {children}
         </SelectPrimitive.Value>
 
