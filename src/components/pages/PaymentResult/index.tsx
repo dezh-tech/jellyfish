@@ -21,7 +21,7 @@ const PaymentResult = () => {
                 : "Payment was Failed";
     const description =
         isItPayed && isItRelay
-            ? "You can publish your notes to jellyfish relay now!"
+            ? "You can publish your notes to jellyfish relay at wss://jellyfish.land now!"
             : isItPayed && !isItRelay
               ? "you can use your nip-05 address on your client right now and share it with everyone!"
               : !isItPayed && isItRelay

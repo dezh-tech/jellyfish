@@ -15,7 +15,7 @@ export const servicesData: ServicesCardProps[] = [
     {
         title: "Relay",
         description:
-            "Publish your notes to a spam-free, WoT protected and modern relay",
+            "Publish your notes to a spam-free, WoT protected and modern relay at wss://jellyfish.land!",
         icon: <img src="/svg/relay.svg" alt="relay" />,
         isItPublished: true,
         href: "/relay",
@@ -25,7 +25,7 @@ export const servicesData: ServicesCardProps[] = [
     {
         title: "NIP-05",
         description:
-            "Create a human-readable, WoT protected and creditable Nostr ID",
+            "Create a human-readable, WoT protected and creditable Nostr ID on <name>@nostr.eco domain!",
         icon: <NipIcon className="flex-shrink-0" />,
         isItPublished: true,
         dashboardHref: "/dashboard/nip05",
