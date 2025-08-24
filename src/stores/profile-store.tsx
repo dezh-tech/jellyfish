@@ -4,6 +4,13 @@ import { createJSONStorage, persist } from "zustand/middleware";
 type TProfile = {
     picture?: string;
     display_name?: string;
+    name?: string;
+    about?: string;
+    banner?: string;
+    nip05?: string;
+    lud06?: string;
+    lud16?: string;
+    website?: string;
 };
 
 type State = {

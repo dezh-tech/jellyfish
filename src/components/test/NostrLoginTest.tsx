@@ -45,7 +45,7 @@ const NostrLoginTest: React.FC = () => {
     try {
       addTestResult('Starting auth logout...');
       if (authLogout) {
-        await authLogout();
+        authLogout();
         addTestResult('Auth logout successful');
       }
     } catch (error) {

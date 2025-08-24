@@ -1,4 +1,4 @@
-import { SimplePool, type Event, finalizeEvent, getEventHash, getSignature } from 'nostr-tools';
+import { SimplePool, type Event } from 'nostr-tools';
 
 const RELAYS = [
   'wss://nos.lol',

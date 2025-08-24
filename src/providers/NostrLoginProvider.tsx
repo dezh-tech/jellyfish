@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { init, launch, type LoginMethod } from 'nostr-login';
+import { init, launch } from 'nostr-login';
 
 interface NostrLoginContextType {
   isLoggedIn: boolean;
   pubkey: string | null;
-  login: (method?: LoginMethod) => Promise<void>;
+  login: (method?: string) => Promise<void>;
   logout: () => Promise<void>;
   isLoading: boolean;
 }
@@ -31,23 +31,6 @@ export const NostrLoginProvider: React.FC<NostrLoginProviderProps> = ({ children
   useEffect(() => {
     // Initialize nostr-login
     init({
-      // Configure the login methods you want to support
-      methods: [
-        'extension', // Browser extension (nos2x, Alby, etc.)
-        'connect', // Nostr Connect (NIP-46)
-        'local', // Local key storage
-        'otp', // One-time password
-        'readOnly' // Read-only mode
-      ],
-      // Configure relays for Nostr Connect
-      relays: [
-        'wss://jellyfish.land',
-        'wss://relay.nostr.band',
-        'wss://nos.lol',
-        'wss://relay.primal.net',
-        'wss://purplepag.es',
-        'wss://ditto.pub/relay'
-      ],
       // Force dark mode to match JellyFish design
       darkMode: true,
       // Use purple theme to match JellyFish gradient colors
@@ -119,13 +102,12 @@ export const NostrLoginProvider: React.FC<NostrLoginProviderProps> = ({ children
     };
   }, []);
 
-  const login = async (method?: LoginMethod) => {
+  const login = async (method?: string) => {
     try {
       setIsLoading(true);
       // Launch the nostr-login dialog
-      await launch({
-        startScreen: method || 'welcome'
-      });
+      // The launch function takes a StartScreens string directly
+      await launch(method as any || 'welcome');
       // The login event will be handled by the event listener
     } catch (error) {
       console.error('Login failed:', error);
