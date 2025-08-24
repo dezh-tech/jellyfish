@@ -108,7 +108,7 @@ const CheckAvailabilityForm = () => {
                 <a
                     target="_blank"
                     referrerPolicy="no-referrer"
-                    href="https://jellyfish.land/tos.txt"
+                    href="/tos"
                     className="underline"
                 >
                     ToS

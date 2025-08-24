@@ -132,7 +132,7 @@ const SellRelayForm = () => {
 
             <div>
                 By clicking on submit you are agree with our{" "}
-                <a href="https://jellyfish.land/tos.txt" className="underline">
+                <a href="/tos" className="underline">
                     ToS
                 </a>
                 .

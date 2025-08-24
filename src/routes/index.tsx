@@ -9,8 +9,10 @@ import Niplist from "@/components/pages/Dashboard/Nip05List";
 import Relaylist from "@/components/pages/Dashboard/RelayList";
 import Maintanance from "@/components/pages/Maintanance";
 import PaymentResult from "@/components/pages/PaymentResult";
+import PrivacyPolicy from "@/components/pages/PrivacyPolicy";
 import SellRelay from "@/components/pages/SellRelay";
 import SetUserName from "@/components/pages/SetUserName";
+import TermsOfService from "@/components/pages/TermsOfService";
 import DashboardLayout from "@/layout/dashboard-layout";
 import RootLayout from "@/layout/layout";
 
@@ -42,6 +44,14 @@ export const router = createBrowserRouter([
             {
                 path: "maintanance",
                 element: <Maintanance />,
+            },
+            {
+                path: "/tos",
+                element: <TermsOfService />,
+            },
+            {
+                path: "/privacy-policy",
+                element: <PrivacyPolicy />,
             },
         ],
     },
