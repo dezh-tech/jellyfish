@@ -1,5 +1,5 @@
 import useProfileStore from "@/stores/profile-store";
-import { useLogin } from "nostr-hooks";
+import { useNostrLogin } from "@/providers/NostrLoginProvider";
 import React, { createContext, PropsWithChildren, useContext } from "react";
 
 const AuthContext = createContext<{
@@ -14,13 +14,13 @@ export function useAuth() {
 }
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
-    const { logout: nostrLogout } = useLogin();
+    const { logout: nostrLogout } = useNostrLogin();
 
     const { isLoggedIn, reset } = useProfileStore(state => state);
 
-    const logout = () => {
+    const logout = async () => {
         reset();
-        nostrLogout();
+        await nostrLogout();
     };
 
     return (

@@ -5,32 +5,11 @@ import AppSidebar from "./AppSidebar";
 import Cookies from "js-cookie";
 import { SidebarProvider } from "@/components/ui/Sidebar";
 import NoticeMessage from "./NoticeMessage";
-import { useNdk } from "nostr-hooks";
-import { useEffect } from "react";
 
 const RootLayout = () => {
     const { pathname } = useLocation();
 
-    const { initNdk, ndk } = useNdk();
-
     const defaultOpen = Cookies.get("sidebar_state") === "true";
-
-    useEffect(() => {
-        initNdk({
-            autoConnectUserRelays: true,
-            // autoFetchUserMutelist: true,
-            explicitRelayUrls: [
-                "wss://jellyfish.land",
-                "wss://relay.nostr.band",
-                "wss://nos.lol",
-                "wss://relay.primal.net",
-            ],
-        });
-    }, [initNdk]);
-
-    useEffect(() => {
-        ndk?.connect().then(() => console.log("NDK connected"));
-    }, [ndk]);
 
     return (
         <SidebarProvider defaultOpen={defaultOpen} className="relative">
