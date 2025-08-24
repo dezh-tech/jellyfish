@@ -20,7 +20,7 @@ const TermsOfService = () => {
                     <section>
                         <h2 className="text-xl font-bold text-white mb-4">Definitions</h2>
                         <ul className="space-y-2">
-                            <li>"We" refers to the operator of this service.</li>
+                            <li>"We", "us", "our", and "Jellyfish" refers to the operator of this service.</li>
                             <li>"Service(s)" refers to the Jellyfish Relay/NIP-05 server/Media server, and the payment interfaces.</li>
                             <li>"You" refers to you, the user of the services.</li>
                         </ul>

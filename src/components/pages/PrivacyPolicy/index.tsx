@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
                 </h1>
                 
                 <div className="text-gray-300 space-y-6 font-roboto-mono">
-                    <p className="text-sm text-gray-400">Last updated: [Date to be updated]</p>
+                    <p className="text-sm text-gray-400">Last updated: 24 August 2025</p>
                     
                     <p>
                         This Privacy Policy describes how JellyFish ("we", "our", or "us") collects, uses, and protects your information when you use our services.
@@ -85,12 +85,6 @@ const PrivacyPolicy = () => {
                             If you have any questions about this Privacy Policy, please contact us through our official channels.
                         </p>
                     </section>
-
-                    <div className="mt-8 p-4 bg-gray-800 rounded-lg">
-                        <p className="text-sm text-gray-400">
-                            <strong>Note:</strong> This is a basic privacy policy template. Please review and customize it according to your specific practices and legal requirements.
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
