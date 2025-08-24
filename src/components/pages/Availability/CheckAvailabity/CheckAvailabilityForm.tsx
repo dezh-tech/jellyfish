@@ -48,35 +48,48 @@ const CheckAvailabilityForm = () => {
                         {...register("username")}
                         type="text"
                         placeholder="username"
+                        label="Username"
+                        id="username-input"
+                        labelClasses="sr-only"
                     />
-                    @
-                    <Controller
-                        name="domainId"
-                        control={control}
-                        render={({ field }) => (
-                            <Select
-                                value={field.value}
-                                onValueChange={value => {
-                                    field.onChange(value);
-                                    setDomainId(value);
-                                }}
-                            >
-                                <SelectTrigger className="rounded-[14px] w-[30%] mt-1"></SelectTrigger>
-                                <SelectContent>
-                                    {data?.map(item =>
-                                        item.status === "ACTIVE" ? (
-                                            <SelectItem
-                                                key={item.id}
-                                                value={item.id}
-                                            >
-                                                {item.domain}
-                                            </SelectItem>
-                                        ) : null,
-                                    )}
-                                </SelectContent>
-                            </Select>
-                        )}
-                    />
+                    <span aria-hidden="true">@</span>
+                    <div className="w-[30%]">
+                        <label htmlFor="domain-select" className="sr-only">
+                            Domain
+                        </label>
+                        <Controller
+                            name="domainId"
+                            control={control}
+                            render={({ field }) => (
+                                <Select
+                                    value={field.value}
+                                    onValueChange={value => {
+                                        field.onChange(value);
+                                        setDomainId(value);
+                                    }}
+                                >
+                                    <SelectTrigger
+                                        className="rounded-[14px] w-full mt-1"
+                                        id="domain-select"
+                                        aria-label="Select domain"
+                                    >
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        {data?.map(item =>
+                                            item.status === "ACTIVE" ? (
+                                                <SelectItem
+                                                    key={item.id}
+                                                    value={item.id}
+                                                >
+                                                    {item.domain}
+                                                </SelectItem>
+                                            ) : null,
+                                        )}
+                                    </SelectContent>
+                                </Select>
+                            )}
+                        />
+                    </div>
                 </div>
 
                 {errors.username && (

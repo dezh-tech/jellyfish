@@ -37,16 +37,16 @@ const RootLayout = () => {
             {/* -- If App Open On the mobile -- */}
             <AppSidebar />
 
-            <main className="relative w-full">
+            <div className="relative w-full">
                 <div className="absolute top-0 -translate-x-1/2 -z-50 left-1/2 animate-fade">
-                    <img src="/svg/top-light.svg" alt="top-light" />
+                    <img src="/svg/top-light.svg" alt="Decorative top light background" />
                 </div>
                 {pathname !== "/" && (
                     <div className=" -z-50 absolute -top-[200px] left-1/2 -translate-x-1/2 ">
                         <img
                             className="animate-fade-up"
                             src="/svg/half-ring.svg"
-                            alt="/half-ring"
+                            alt="Decorative half ring background"
                             height={894}
                             width={806}
                         />
@@ -70,7 +70,7 @@ const RootLayout = () => {
                     </main>
                     <Footer />
                 </div>
-            </main>
+            </div>
         </SidebarProvider>
     );
 };

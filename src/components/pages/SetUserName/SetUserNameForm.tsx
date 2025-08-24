@@ -27,6 +27,7 @@ const SetUserNameForm = ({
                     {...register("npub")}
                     type="text"
                     placeholder="npub..."
+                    id="npub-payment-input"
                 />
 
                 {errors.npub && (

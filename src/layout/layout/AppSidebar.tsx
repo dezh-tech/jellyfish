@@ -36,6 +36,7 @@ const AppSidebar = () => {
                         <button
                             className="flex flex-col space-y-1.5 text-gray-500 hover:text-gray-800 transition-all duration-150"
                             onClick={toggleSidebar}
+                            aria-label="Close navigation menu"
                         >
                             <X size={24} />
                         </button>
@@ -45,9 +46,9 @@ const AppSidebar = () => {
                 <SidebarGroup>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            <div className="space-y-4">
-                                <MenuItems />
-                            </div>
+                            <nav aria-label="Main navigation">
+                                <MenuItems isMobile={true} />
+                            </nav>
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
