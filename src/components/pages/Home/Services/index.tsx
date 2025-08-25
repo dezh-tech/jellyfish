@@ -6,8 +6,8 @@ import ServicesCard from "./ServicesCard";
 
 const ServicesSection = () => {
     return (
-        <section className="space-y-[84px]" aria-labelledby="services-heading">
-            <SectionTitle className="text-center" id="services-heading">Our Premium Nostr Services</SectionTitle>
+        <section className="space-y-[84px]">
+            <SectionTitle className="text-center">Our Premium Nostr Services</SectionTitle>
 
             {/* SEO-friendly description */}
             <div className="max-w-4xl mx-auto text-center mb-8">

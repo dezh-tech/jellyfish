@@ -69,15 +69,26 @@ const RelayList = () => {
                                     {getRemaningFormattedTime(remaring)}
                                 </p>
 
-                                <Link
-                                    to={`/relay`}
-                                    className={cn(
-                                        buttonVariants(),
-                                        "flex min-w-[80px] sm:min-w-[96px] md:min-w-[104px] lg:min-w-[112px] h-10 sm:h-11 md:h-12 lg:h-12",
-                                    )}
-                                >
-                                    Renew
-                                </Link>
+                                <div className="flex flex-col items-end gap-2">
+                                    <div className="flex items-center gap-2 text-xs sm:text-sm text-[#ACCDF2]">
+                                        <span className="opacity-80">Main relay:</span>
+                                        <code className="bg-black/30 px-2 py-1 rounded">wss://jellyfish.land</code>
+                                        <button
+                                            className={cn(buttonVariants({ variant: 'outline' }), 'h-8 px-2')}
+                                            onClick={() => navigator.clipboard.writeText('wss://jellyfish.land')}
+                                            title="Copy to clipboard"
+                                        >Copy</button>
+                                    </div>
+                                    <Link
+                                        to={`/relay`}
+                                        className={cn(
+                                            buttonVariants(),
+                                            "flex min-w-[80px] sm:min-w-[96px] md:min-w-[104px] lg:min-w-[112px] h-10 sm:h-11 md:h-12 lg:h-12",
+                                        )}
+                                    >
+                                        Renew
+                                    </Link>
+                                </div>
                             </>
                         )}
                     </header>

@@ -7,6 +7,8 @@ import Dashboard from "@/components/pages/Dashboard";
 import NpubEditForm from "@/components/pages/Dashboard/Edit";
 import Niplist from "@/components/pages/Dashboard/Nip05List";
 import Relaylist from "@/components/pages/Dashboard/RelayList";
+import Deletions from "@/components/pages/Dashboard/Deletions";
+import Migration from "@/components/pages/Dashboard/Migration";
 import Maintanance from "@/components/pages/Maintanance";
 import PaymentResult from "@/components/pages/PaymentResult";
 import PrivacyPolicy from "@/components/pages/PrivacyPolicy";
@@ -77,6 +79,14 @@ export const router = createBrowserRouter([
                     {
                         path: "nip05",
                         element: <Niplist />,
+                    },
+                    {
+                        path: "deletions",
+                        element: <Deletions />,
+                    },
+                    {
+                        path: "migration",
+                        element: <Migration />,
                     },
                 ],
             },

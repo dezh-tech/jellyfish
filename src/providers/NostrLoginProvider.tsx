@@ -44,32 +44,8 @@ export const NostrLoginProvider: React.FC<NostrLoginProviderProps> = ({ children
       // Start with welcome screen
       startScreen: 'welcome',
     });
-
-    // Check if user is already logged in
-    const checkLoginStatus = async () => {
-      try {
-        // Check if window.nostr is available and get pubkey
-        if (window.nostr) {
-          try {
-            const userPubkey = await window.nostr.getPublicKey();
-            if (userPubkey) {
-              setPubkey(userPubkey);
-              setIsLoggedIn(true);
-            }
-          } catch (error) {
-            // User not logged in or denied access
-            console.log('No active nostr session');
-          }
-        }
-      } catch (error) {
-        console.error('Error checking login status:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    // Wait a bit for nostr-login to initialize, then check status
-    setTimeout(checkLoginStatus, 100);
+    // Do not auto-open or prompt any login dialogs; mark ready
+    setIsLoading(false);
 
     // Listen for login/logout events from nostr-login
     const handleAuth = (event: CustomEvent) => {

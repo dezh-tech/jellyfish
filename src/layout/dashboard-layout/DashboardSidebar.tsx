@@ -1,12 +1,11 @@
 import { JellyFishIcon } from "@/assets/icons/nav/JellyFishIcon";
 import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/providers/AuthProvider";
-import { ChevronLeft, ChevronRight, HomeIcon, LogOutIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, HomeIcon, LogOutIcon, Trash2, UploadCloud, AtSign, Server } from "lucide-react";
 import { Link } from "react-router-dom";
 import AuthenticationAction from "./../layout/AuthenticationActions";
 import { useDashboardSidebar } from "./DashboardSidebarContext";
 import SidebarItem from "./SidebarItem";
-import { NipIcon } from "@/assets/icons";
 
 const DashboardSidebar = () => {
     const { isCollapsed, toggleCollapse } = useDashboardSidebar();
@@ -49,28 +48,36 @@ const DashboardSidebar = () => {
                 <div className="flex-1 p-4">
                     <Link to={"/dashboard"}>
                         <SidebarItem
-                            icon={<HomeIcon className="w-5 h-5 " />}
+                            icon={<HomeIcon className="flex-shrink-0" />}
                             label="Home"
                             isCollapsed={isCollapsed}
                         />
                     </Link>
                     <Link to={"/dashboard/relay"}>
                         <SidebarItem
-                            icon={
-                                <img
-                                    className="w-5 h-5"
-                                    src="/svg/relay.svg"
-                                    alt="relay"
-                                />
-                            }
+                            icon={<Server className="flex-shrink-0" />}
                             label="Relay"
                             isCollapsed={isCollapsed}
                         />
                     </Link>
                     <Link to={"/dashboard/nip05"}>
                         <SidebarItem
-                            icon={<NipIcon className="flex-shrink-0" />}
+                            icon={<AtSign className="flex-shrink-0" />}
                             label="Nip05"
+                            isCollapsed={isCollapsed}
+                        />
+                    </Link>
+                    <Link to={"/dashboard/deletions"}>
+                        <SidebarItem
+                            icon={<Trash2 className="flex-shrink-0" />}
+                            label="Deletions"
+                            isCollapsed={isCollapsed}
+                        />
+                    </Link>
+                    <Link to={"/dashboard/migration"}>
+                        <SidebarItem
+                            icon={<UploadCloud className="flex-shrink-0" />}
+                            label="Migration"
                             isCollapsed={isCollapsed}
                         />
                     </Link>
