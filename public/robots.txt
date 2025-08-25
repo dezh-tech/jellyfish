@@ -1,0 +1,41 @@
+# Robots.txt for JellyFish - Premium Nostr Services
+# https://jellyfish.land
+
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Disallow admin/private areas (if any exist)
+Disallow: /admin/
+Disallow: /api/
+
+# Allow important pages for SEO
+Allow: /relay
+Allow: /nip05
+Allow: /dashboard
+Allow: /tos
+Allow: /privacy-policy
+
+# Sitemap location
+Sitemap: https://jellyfish.land/sitemap.xml
+
+# Crawl delay (optional - be respectful)
+Crawl-delay: 1

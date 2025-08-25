@@ -1,4 +1,9 @@
+import { useSEO } from "@/hooks/useSEO";
+
 const PrivacyPolicy = () => {
+    // Set SEO for Privacy Policy page
+    useSEO('privacy');
+
     return (
         <div className="container mx-auto px-4 py-8 max-w-4xl">
             <div className="prose prose-invert max-w-none">

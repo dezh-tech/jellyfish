@@ -9,7 +9,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="font-roboto-mono max-w-[80%] sm:max-w-[60%] md:max-w-[503px] mx-auto text-center mt-4 md:mt-6 lg:mt-8 text-base sm:text-lg md:text-xl">
-                Endlessly enjoy freedom social with ultimate JellyFish services.
+                Premium Nostr relay and NIP-05 services with WoT protection. Join the decentralized social revolution with JellyFish.
             </p>
 
             <div className="flex items-center justify-center w-full">
@@ -39,6 +39,25 @@ const HeroSection = () => {
                 alt="jellyfish"
                 loading="lazy"
             />
+
+            {/* Hidden SEO content for better keyword targeting */}
+            <div className="sr-only">
+                <h2>Premium Nostr Services</h2>
+                <p>
+                    JellyFish offers the best Nostr relay and NIP-05 services with Web of Trust (WoT) protection.
+                    Our spam-free Nostr relay at wss://jellyfish.land provides reliable infrastructure for the
+                    decentralized social network. Get your premium @nostr.eco NIP-05 address for verified
+                    Nostr identity. Join thousands of users who trust JellyFish for their Nostr needs.
+                </p>
+                <ul>
+                    <li>Paid Nostr relay with WoT protection</li>
+                    <li>Premium NIP-05 names on nostr.eco domain</li>
+                    <li>Spam-free Web of Trust relay</li>
+                    <li>Professional Nostr infrastructure</li>
+                    <li>Lightning and Bitcoin integration</li>
+                    <li>Decentralized social network services</li>
+                </ul>
+            </div>
         </section>
     );
 };

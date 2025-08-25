@@ -2,9 +2,13 @@ import useProfileStore from "@/stores/profile-store";
 import { Link } from "react-router-dom";
 import { servicesData } from "../Home/Services/data";
 import ServicesCard from "../Home/Services/ServicesCard";
+import { useSEO } from "@/hooks/useSEO";
 
 const Dashboard = () => {
     const { profile, pubKey } = useProfileStore(state => state);
+
+    // Set SEO for dashboard page
+    useSEO('dashboard');
 
     return (
         <main className="space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-[107px] pt-16 sm:pt-20 md:pt-24 lg:pt-24">
