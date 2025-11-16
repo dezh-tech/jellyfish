@@ -1,0 +1,23 @@
+{
+  "relays": [
+    "wss://jellyfish.land",
+    "wss://relay.primal.net",
+    "wss://nos.lol",
+    "wss://relay.nsite.lol",
+    "wss://relay.nostr.band"
+  ],
+  "servers": [
+    "https://cdn.hzrd149.com",
+    "https://cdn.sovbit.host",
+    "https://cdn.nostrcheck.me",
+    "https://nostr.download"
+  ],
+  "profile": {
+    "name": "Jellyfish",
+    "display_name": "Jellyfish",
+    "about": "JellyFish - Premium Nostr relay and NIP-05 services. Get spam-free WoT protected Nostr relay access and human-readable @nostr.eco addresses. Professional Nostr infrastructure for the decentralized web."
+  },
+  "publishProfile": false,
+  "publishRelayList": false,
+  "publishServerList": false
+}
