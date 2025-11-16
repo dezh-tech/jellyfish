@@ -1,109 +1,69 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="JellyFish - Premium Nostr relay and NIP-05 services. Get spam-free WoT protected Nostr relay access and human-readable @nostr.eco addresses. Professional Nostr infrastructure for the decentralized web." />
-        <meta
-            name="keywords"
-            content="Nostr, Jellyfish, Jellyfish Nostr, Jellyfish Relay, Nostr Relay, Paid Relay, Nostr paid relay, NIP-05 names, Paid NIP-05 names, WoT Web of Trust relay, WoT relay, Web of Trust, Nostr infrastructure, decentralized social, Bitcoin, Lightning, spam-free relay, premium Nostr, Nostr services, nostr.eco, Nostr identity, Nostr verification, Nostr protocol, decentralized identity, censorship resistant, freedom technology, peer-to-peer, P2P social network"
-        />
-        <meta name="author" content="JellyFish Team" />
-        <meta name="robots" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="bingbot" content="index, follow" />
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://jellyfish.land" />
-        <meta property="og:title" content="JellyFish - Premium Nostr Relay & NIP-05 Services | WoT Protected" />
-        <meta property="og:description" content="Professional Nostr infrastructure with spam-free WoT protected relay and premium @nostr.eco NIP-05 addresses. Join the decentralized social revolution with JellyFish." />
-        <meta property="og:image" content="https://jellyfish.land/og.webp" />
-        <meta property="og:image:secure_url" content="https://jellyfish.land/og.webp" />
-        <meta property="og:image:width" content="4116" />
-        <meta property="og:image:height" content="2160" />
-        <meta property="og:image:type" content="image/webp" />
-        <meta property="og:image:alt" content="JellyFish - Premium Nostr Relay and NIP-05 Services" />
-        <meta property="og:site_name" content="JellyFish" />
-        <meta property="og:locale" content="en_US" />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="JellyFish - Premium Nostr relay and NIP-05 services. Get spam-free WoT protected Nostr relay access and human-readable @nostr.eco addresses. Professional Nostr infrastructure for the decentralized web." />
+  <meta name="keywords"
+    content="Nostr, Jellyfish, Jellyfish Nostr, Jellyfish Relay, Nostr Relay, Paid Relay, Nostr paid relay, NIP-05 names, Paid NIP-05 names, WoT Web of Trust relay, WoT relay, Web of Trust, Nostr infrastructure, decentralized social, Bitcoin, Lightning, spam-free relay, premium Nostr, Nostr services, nostr.eco, Nostr identity, Nostr verification, Nostr protocol, decentralized identity, censorship resistant, freedom technology, peer-to-peer, P2P social network" />
+  <meta name="author" content="JellyFish Team" />
+  <meta name="robots" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
 
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://jellyfish.land" />
-        <meta name="twitter:title" content="JellyFish - Premium Nostr Relay & NIP-05 Services | WoT Protected" />
-        <meta name="twitter:description" content="Professional Nostr infrastructure with spam-free WoT protected relay and premium @nostr.eco NIP-05 addresses. Join the decentralized social revolution." />
-        <meta name="twitter:image" content="https://jellyfish.land/og.webp" />
-        <meta name="twitter:image:alt" content="JellyFish - Premium Nostr Relay and NIP-05 Services" />
-        <meta name="twitter:creator" content="@jellyfishnostr" />
-        <meta name="twitter:site" content="@jellyfishnostr" />
-        <link rel="mask-icon" href="/fav-icon.svg" color="#01A6FF" />
-        <link rel="apple-touch-icon" sizes="40x40" href="/fav.png" />
-        <meta content="telephone=no" name="format-detection" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta
-            name="robots"
-            content="index, follow, max-video-preview:max-video-preview:-1, max-image-preview:max-image-preview:large, max-snippet:max-snippet:-1"
-        />
-        <title>JellyFish - Premium Nostr Relay & NIP-05 Services | WoT Protected</title>
-        <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto-Mono:wght@400;500;700&display=swap"
-            rel="stylesheet"
-        />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jellyfish.land" />
+  <meta property="og:title" content="JellyFish - Premium Nostr Relay & NIP-05 Services | WoT Protected" />
+  <meta property="og:description"
+    content="Professional Nostr infrastructure with spam-free WoT protected relay and premium @nostr.eco NIP-05 addresses. Join the decentralized social revolution with JellyFish." />
+  <meta property="og:image" content="https://jellyfish.land/og.webp" />
+  <meta property="og:image:secure_url" content="https://jellyfish.land/og.webp" />
+  <meta property="og:image:width" content="4116" />
+  <meta property="og:image:height" content="2160" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:alt" content="JellyFish - Premium Nostr Relay and NIP-05 Services" />
+  <meta property="og:site_name" content="JellyFish" />
+  <meta property="og:locale" content="en_US" />
 
-        <!-- Structured Data -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "JellyFish",
-          "alternateName": "JellyFish Nostr",
-          "url": "https://jellyfish.land",
-          "logo": "https://jellyfish.land/fav-icon.svg",
-          "description": "Premium Nostr relay and NIP-05 services with WoT protection. Professional Nostr infrastructure for the decentralized web.",
-          "foundingDate": "2024",
-          "sameAs": [
-            "https://github.com/jellyfish-land",
-            "https://nostr.eco"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "url": "https://jellyfish.land"
-          },
-          "offers": [
-            {
-              "@type": "Service",
-              "name": "Nostr Relay Service",
-              "description": "Spam-free, WoT protected Nostr relay at wss://jellyfish.land",
-              "provider": {
-                "@type": "Organization",
-                "name": "JellyFish"
-              },
-              "serviceType": "Nostr Relay",
-              "areaServed": "Worldwide"
-            },
-            {
-              "@type": "Service",
-              "name": "NIP-05 Identity Service",
-              "description": "Human-readable, WoT protected Nostr ID on @nostr.eco domain",
-              "provider": {
-                "@type": "Organization",
-                "name": "JellyFish"
-              },
-              "serviceType": "NIP-05 Verification",
-              "areaServed": "Worldwide"
-            }
-          ]
-        }
-        </script>
-    </head>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jellyfish.land" />
+  <meta name="twitter:title" content="JellyFish - Premium Nostr Relay & NIP-05 Services | WoT Protected" />
+  <meta name="twitter:description"
+    content="Professional Nostr infrastructure with spam-free WoT protected relay and premium @nostr.eco NIP-05 addresses. Join the decentralized social revolution." />
+  <meta name="twitter:image" content="https://jellyfish.land/og.webp" />
+  <meta name="twitter:image:alt" content="JellyFish - Premium Nostr Relay and NIP-05 Services" />
+  <meta name="twitter:creator" content="@jellyfishnostr" />
+  <meta name="twitter:site" content="@jellyfishnostr" />
+  <link rel="mask-icon" href="/fav-icon.svg" color="#01A6FF" />
+  <link rel="apple-touch-icon" sizes="40x40" href="/fav.png" />
+  <meta content="telephone=no" name="format-detection" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="robots"
+    content="index, follow, max-video-preview:max-video-preview:-1, max-image-preview:max-image-preview:large, max-snippet:max-snippet:-1" />
+  <title>JellyFish - Premium Nostr Relay & NIP-05 Services | WoT Protected</title>
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto-Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
-    <body>
-        <!-- React App -->
+  <script src="https://rokovo.io/widget.js"
+    data-publishable-key="pk-rok-live-uB-aIq-Y943dCbq5kVwS8iufEgkPUb4aSPGRSa7wsck" data-primary-color="#1f2937"
+    data-secondary-color="#f0f0f0"
+    data-business-name="Jellyfish"
+    data-agent-name="Jello"
+    async>
+    
+    </script>
+</head>
 
-        <div id="root"></div>
-        <script type="module" src="/src/main.tsx"></script>
-    </body>
+<body>
+  <!-- React App -->
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
